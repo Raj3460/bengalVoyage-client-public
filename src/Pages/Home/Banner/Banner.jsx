@@ -28,7 +28,7 @@ const slides = [
 
 const Banner = () => {
   return (
-    <div className="relative w-full h-[90vh] overflow-hidden">
+    <div className="relative w-full h-[70vh] overflow-hidden">
       <div className="carousel w-full h-full">
         {slides.map((slide) => (
           <div
@@ -62,6 +62,7 @@ const Banner = () => {
               <a href={`#slide${slide.id === slides.length ? 1 : slide.id + 1}`} className="btn btn-circle">
                 ❯
               </a>
+          
             </div>
           </div>
         ))}
