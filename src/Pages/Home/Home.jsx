@@ -4,6 +4,7 @@ import Overview from "./Overview/Overview";
 import TouristStorySec from "./Tourist_Story/TouristStorySec";
 import Ourservice from "./OurService/Ourservice";
 import TourismAndTravel from "./TourismAndTravel/TourismAndTravel";
+import HowItsWorks from "./HowItsWorks/HowItsWorks";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <TourismAndTravel></TourismAndTravel>
       <TouristStorySec></TouristStorySec>
       <Ourservice></Ourservice>
+      <HowItsWorks></HowItsWorks>
     </div>
   );
 };

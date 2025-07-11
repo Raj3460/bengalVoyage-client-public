@@ -31,7 +31,7 @@ const Overview = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-b bg-amber-50">
+    <section className="py-16 px-4 bg-gradient-to-b bg-base-300">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -62,7 +62,7 @@ const Overview = () => {
               className=" text-xs p-6  "
             >
               <div className="flex flex-col items-center text-center">
-                <div className="mb-4 rounded-full p-6 bg-secondary  ">
+                <div className="mb-4 rounded-full text-primary p-6 bg-secondary  ">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-800">

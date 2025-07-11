@@ -4,6 +4,8 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Registation from "../Pages/Registation/Registation";
 import Forbidden from "../Forbidden/Forbidden";
+import DashBoardLayout from "../Layout/DashBoardLayout";
+import PrivateRouts from "../SecureRout/PrivateRouts";
 
 export const router = createBrowserRouter([
   {
@@ -28,4 +30,18 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  
+    {
+    path: "/dashboard",
+    element: (
+      <PrivateRouts>
+        <DashBoardLayout></DashBoardLayout>
+      </PrivateRouts>
+    ),
+    children: [
+
+    ]
+  
+  },
+  
 ]);
