@@ -14,15 +14,15 @@ const Logo = () => {
       {/* Logo Image */}
       <div className="w-10 h-10 sm:w-12 sm:h-12">
         <img 
-          src="/logo.png"  // Make sure to place your logo in the public folder
+          src="/logo.png"  
           alt="BengalVoyage Logo"
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain "
         />
       </div>
       
       {/* Logo Text */}
       <div className="flex flex-col">
-        <span className="text-xl sm:text-2xl font-bold text-gray-100 tracking-tight">
+        <span className="text-xl sm:text-2xl font-bol tracking-tight">
           BengalVoyage
         </span>
         <span className="text-xs text-amber-500 font-medium -mt-1">

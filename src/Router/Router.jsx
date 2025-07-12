@@ -6,6 +6,7 @@ import Registation from "../Pages/Registation/Registation";
 import Forbidden from "../Forbidden/Forbidden";
 import DashBoardLayout from "../Layout/DashBoardLayout";
 import PrivateRouts from "../SecureRout/PrivateRouts";
+import ManageProfile from "../Pages/DashBoard/ManageProfile/ManageProfile";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
     ),
     children: [
 
+      {
+        path:"Manage_Profile",
+        Component : ManageProfile
+      }
     ]
   
   },

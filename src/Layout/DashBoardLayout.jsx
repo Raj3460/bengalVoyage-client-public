@@ -58,32 +58,46 @@ const DashBoardLayout = () => {
         ></label>
         <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
           {/* Sidebar content here */}
-          <Logo></Logo>
+         <div className="my-4 ml-2.5">
+               <Logo></Logo>
+         </div>
           <li>
             <NavLink to="">
-              <FaHome /> Home
+              <FaHome /> Home (all)
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/myParcel">
-              <FaBoxOpen /> My Parcel
+            <NavLink to="/dashboard/manage_profile">
+              <FaBoxOpen /> Manage Profile (all)
             </NavLink>
           </li>
           <li>
             <NavLink to="/dashboard/paymentHistory">
-              <FaUserEdit /> Payment History
+              <FaUserEdit /> My Bookings (tourist)
             </NavLink>
           </li>
           <li>
             <NavLink to="/dashboard/track">
-              <FaSearch /> Track a Package
+              <FaSearch /> Manage stories (tourist + Guide)
             </NavLink>
           </li>
           <li>
             <NavLink to="/dashboard/profile">
-              <FaUserEdit /> Update profile
+              <FaUserEdit /> Join as tour guide
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/dashboard/profile">
+              <FaUserEdit /> Add stories (tourist + Guide)
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/profile">
+              <FaUserEdit /> My Assigned Tours (Guide + Admin)
+            </NavLink>
+          </li>
+
+          
           {/* { !roleLoading && role === 'admin' && */}
             {/* <> */}
              <li>
@@ -93,19 +107,19 @@ const DashBoardLayout = () => {
           </li>
             <li>
             <NavLink to="/dashboard/active-Riders">
-              <FaUserCheck /> Active Riders
+              <FaUserCheck /> Add Package (admin)
             </NavLink>
           </li>
           <li>
             <NavLink to="/dashboard/pending-riders">
-              <FaUserClock /> Pending Riders
+              <FaUserClock /> (ManAge Users) (admin)
             </NavLink>
           </li>
 
-          {/* admin */}
+        
           <li>
             <NavLink to="/dashboard/makeAdmin">
-              <FaUserShield className="inline-block" /> Make Admin
+              <FaUserShield className="inline-block" /> Manage Candidates (Admin)
             </NavLink>
           </li>
           {/* </> */}
