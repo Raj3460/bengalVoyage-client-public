@@ -106,7 +106,7 @@ const DashBoardLayout = () => {
             </NavLink>
           </li>
             <li>
-            <NavLink to="/dashboard/active-Riders">
+            <NavLink to="/dashboard/add_package">
               <FaUserCheck /> Add Package (admin)
             </NavLink>
           </li>

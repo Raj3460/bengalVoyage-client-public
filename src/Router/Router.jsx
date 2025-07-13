@@ -7,6 +7,7 @@ import Forbidden from "../Forbidden/Forbidden";
 import DashBoardLayout from "../Layout/DashBoardLayout";
 import PrivateRouts from "../SecureRout/PrivateRouts";
 import ManageProfile from "../Pages/DashBoard/ManageProfile/ManageProfile";
+import AddPackage from "../Pages/DashBoard/AddPackageAdmin/AddPackage";
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,9 @@ export const router = createBrowserRouter([
       {
         path:"Manage_Profile",
         Component : ManageProfile
+      },{
+        path: "add_package",
+      Component : AddPackage
       }
     ]
   
