@@ -1,71 +1,45 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router";
-import { 
-  FaUser, 
-  FaUserTie, 
-  FaUserShield, 
-  FaEdit, 
-  FaArrowRight, 
-  FaMoneyBillWave, 
-  FaUsers, 
-  FaBoxOpen, 
-  FaBook, 
-  FaEnvelope 
-} from "react-icons/fa";
-// import EditProfileModal from "./EditProfileModal";
-import useAuth from "../../../Hooks/useAuth";
 import UseAxiosSecureApi from "../../../Hooks/Api/UseAxiosSecureApi";
-import useUsersRoles from "../../../Hooks/useUsersRoles";
+import useAuth from "../../../Hooks/useAuth";
 import LoadingSpinner from "../../../Component/Sheard/LoadingSpinner";
+import EditProfileModal from "./EditProfileModal";
 
-// Define StatCard component outside the main component
-const StatCard = ({ icon, title, value, trend, trendValue, bgColor }) => (
-  <div className={`${bgColor} p-5 rounded-xl shadow-sm`}>
-    <div className="flex justify-between items-start">
+import {
+  FaUser,
+  FaUserTie,
+  FaUserShield,
+  FaEdit,
+  FaChartLine,
+  FaArrowRight,
+  FaMapMarkedAlt,
+  FaBookOpen,
+} from "react-icons/fa";
+import { MdEmail, MdAdminPanelSettings } from "react-icons/md";
+
+const StatCard = ({ title, value, icon, color }) => (
+  <div className={`p-5 rounded-xl shadow-md ${color.bg} ${color.text} transition-all duration-300 hover:shadow-lg hover:-translate-y-1`}>
+    <div className="flex justify-between items-center">
       <div>
-        <p className="text-sm font-medium text-gray-600 dark:text-gray-300">{title}</p>
-        <p className="text-2xl font-bold mt-1">{value}</p>
+        <p className="text-sm font-medium">{title}</p>
+        <p className="text-2xl font-bold">{value}</p>
       </div>
-      <div className="p-3 rounded-full bg-white dark:bg-gray-700 shadow">
-        {icon}
-      </div>
+      <div className="text-3xl p-3 rounded-full bg-white bg-opacity-30">{icon}</div>
     </div>
-    {trend && (
-      <div className={`mt-3 text-xs font-medium ${
-        trend === 'up' ? 'text-green-500' : 
-        trend === 'down' ? 'text-red-500' : 'text-gray-500'
-      }`}>
-        {trendValue && <span>{trendValue} {trend === 'up' ? '↑' : '↓'}</span>}
-        {!trendValue && trend === 'steady' && 'Steady'}
-      </div>
-    )}
-  </div>
-);
-
-// Define InfoItem component
-const InfoItem = ({ label, value, status }) => (
-  <div className="border-b border-gray-100 dark:border-gray-700 pb-3">
-    <p className="text-sm text-gray-500 dark:text-gray-400">{label}</p>
-    <p className={`font-medium ${
-      status === 'active' ? 'text-green-600 dark:text-green-400' : 
-      'text-gray-800 dark:text-gray-200'
-    }`}>
-      {value}
-      {status === 'active' && (
-        <span className="ml-2 inline-block w-2 h-2 rounded-full bg-green-500"></span>
-      )}
-    </p>
   </div>
 );
 
 const ManageProfile = () => {
   const { user } = useAuth();
   const axiosSecure = UseAxiosSecureApi();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const { role } = useUsersRoles();
+  const [isOpen, setIsOpen] = useState(false);
 
-  const { data: currentUser = {}, isLoading, refetch } = useQuery({
+  const {
+    data: currentUser = {},
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["currentUser", user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
@@ -74,155 +48,213 @@ const ManageProfile = () => {
     },
   });
 
-  const { data: stats = {}, isLoading: statsLoading } = useQuery({
+  const { data: adminStats = {} } = useQuery({
     queryKey: ["adminStats"],
-    enabled: role === "admin",
+    enabled: currentUser?.role === "admin",
     queryFn: async () => {
       const res = await axiosSecure.get("/admin/stats");
       return res.data;
     },
   });
 
-  if (isLoading || (role === "admin" && statsLoading)) {
-    return <LoadingSpinner size="small" />;
-  }
+  if (isLoading) return <LoadingSpinner size="small" />;
 
-  const getRoleBadge = () => {
-    const baseClasses = "px-3 py-1 rounded-full text-xs font-semibold";
-    switch(role) {
-      case "admin":
-        return <span className={`${baseClasses} bg-purple-100 text-purple-800`}><FaUserShield className="inline mr-1" /> Admin</span>;
-      case "tour-guide":
-        return <span className={`${baseClasses} bg-blue-100 text-blue-800`}><FaUserTie className="inline mr-1" /> Tour Guide</span>;
-      default:
-        return <span className={`${baseClasses} bg-green-100 text-green-800`}><FaUser className="inline mr-1" /> Tourist</span>;
-    }
+  const roleIcon = {
+    admin: <FaUserShield className="text-purple-600 text-xl" />,
+    "tour-guide": <FaUserTie className="text-blue-600 text-xl" />,
+    tourist: <FaUser className="text-green-600 text-xl" />,
+  };
+
+  const roleLabel = {
+    admin: "Admin",
+    "tour-guide": "Tour Guide",
+    tourist: "Tourist",
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Profile Header */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mb-8">
-        <div className="p-8 flex flex-col md:flex-row items-start md:items-center gap-6">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-2xl shadow-lg">
+        <div className="flex items-start gap-5">
           <div className="relative">
-            <img
-              src={currentUser?.image || "/default-profile.png"}
-              alt="Profile"
-              className="w-32 h-32 rounded-full border-4 border-white dark:border-gray-800 shadow-lg object-cover"
-            />
-            <div className="absolute -bottom-2 right-2">
-              {getRoleBadge()}
+            <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg">
+              <img
+                src={currentUser?.image || "/default-profile.png"}
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-2 -right-2 bg-white dark:bg-gray-700 p-1 rounded-full shadow">
+              {roleIcon[currentUser?.role]}
             </div>
           </div>
-          
-          <div className="flex-1">
-            <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
               {currentUser?.name || "User"}
             </h1>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              <FaEnvelope className="inline mr-2" />
+            <div className="mt-2 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white dark:bg-gray-700 shadow-sm">
+              {roleIcon[currentUser?.role]}
+              <span className="ml-2">{roleLabel[currentUser?.role]}</span>
+            </div>
+            <p className="mt-3 text-sm text-gray-600 dark:text-gray-300 flex items-center">
+              <MdEmail className="mr-2 text-indigo-500 dark:text-indigo-400" />
               {currentUser?.email}
             </p>
-            
-            <div className="flex flex-wrap gap-3">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="flex items-center px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-lg transition"
-              >
-                <FaEdit className="mr-2" />
-                Edit Profile
-              </button>
-
-              {role === "tourist" && (
-                <Link to="/dashboard/join-tour-guide">
-                  <button className="flex items-center px-4 py-2 border border-primary text-primary hover:bg-primary/10 rounded-lg transition">
-                    Become a Guide <FaArrowRight className="ml-2" />
-                  </button>
-                </Link>
-              )}
-            </div>
           </div>
         </div>
+
+        <button
+          onClick={() => setIsOpen(true)}
+          className="flex items-center px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white rounded-lg transition-all shadow-md hover:shadow-lg"
+        >
+          <FaEdit className="mr-2" />
+          Edit Profile
+        </button>
       </div>
 
+      {/* Tourist CTA */}
+      {currentUser?.role === "tourist" && (
+        <div className="relative bg-gradient-to-r from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 p-6 rounded-2xl mb-10 overflow-hidden shadow">
+          <div className="absolute -right-10 -top-10 w-32 h-32 bg-green-200 dark:bg-green-800 rounded-full opacity-20"></div>
+          <div className="absolute -right-5 -bottom-5 w-20 h-20 bg-green-300 dark:bg-green-700 rounded-full opacity-20"></div>
+          <div className="relative z-10">
+            <h3 className="text-xl font-semibold mb-3 text-green-800 dark:text-green-200">
+              Ready for a new adventure?
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-5 max-w-lg">
+              Turn your passion for travel into a profession. Apply to become a certified tour guide and start creating unforgettable experiences for fellow travelers.
+            </p>
+            <Link to="/dashboard/join_tour_guide">
+              <button className="flex items-center px-5 py-2.5 bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all">
+                Apply Now <FaArrowRight className="ml-2" />
+              </button>
+            </Link>
+          </div>
+        </div>
+      )}
+
       {/* Admin Dashboard */}
-      {role === "admin" && (
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
-            <FaUserShield className="mr-2 text-purple-500" />
-            Admin Dashboard
-          </h2>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
-            <StatCard 
-              icon={<FaMoneyBillWave className="text-blue-500 text-2xl" />}
+      {currentUser?.role === "admin" && (
+        <div className="mb-10">
+          <div className="flex items-center mb-6">
+            <div className="p-3 rounded-lg bg-purple-100 dark:bg-purple-900/50 mr-4">
+              <MdAdminPanelSettings className="text-2xl text-purple-600 dark:text-purple-400" />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+              Admin Dashboard
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 ">
+            <StatCard
               title="Total Revenue"
-              value={`৳${stats.totalPayment?.toLocaleString() || 0}`}
-              trend="up"
-              trendValue="12%"
-              bgColor="bg-blue-50 dark:bg-blue-900/30"
+              value={`৳${adminStats.totalPayments?.toLocaleString() || 0}`}
+              icon={<FaChartLine className="text-blue-500" />}
+              color={{ bg: "bg-blue-100 dark:bg-blue-900/30", text: "text-blue-800 dark:text-blue-200" }}
             />
-            
-            <StatCard 
-              icon={<FaUsers className="text-green-500 text-2xl" />}
+            <StatCard
               title="Tour Guides"
-              value={stats.totalGuides || 0}
-              trend="up"
-              trendValue="5%"
-              bgColor="bg-green-50 dark:bg-green-900/30"
+              value={(adminStats.totalGuides || 0).toLocaleString()}
+              icon={<FaUserTie  className="text-green-400"/>}
+              color={{ bg: "bg-green-100 dark:bg-green-900/30", text: "text-green-800 dark:text-green-200" }}
             />
-            
-            <StatCard 
-              icon={<FaBoxOpen className="text-amber-500 text-2xl" />}
+            <StatCard
               title="Packages"
-              value={stats.totalPackages || 0}
-              trend="steady"
-              bgColor="bg-amber-50 dark:bg-amber-900/30"
+              value={(adminStats.totalPackages || 0).toLocaleString()}
+              icon={<FaMapMarkedAlt />}
+              color={{ bg: "bg-yellow-100 dark:bg-yellow-900/30", text: "text-yellow-800 dark:text-yellow-200" }}
             />
-            
-            <StatCard 
-              icon={<FaUser className="text-purple-500 text-2xl" />}
-              title="Clients"
-              value={stats.totalTourists || 0}
-              trend="up"
-              trendValue="8%"
-              bgColor="bg-purple-50 dark:bg-purple-900/30"
+            <StatCard
+              title="Tourists"
+              value={(adminStats.totalTourists || 0).toLocaleString()}
+              icon={<FaUser />}
+              color={{ bg: "bg-purple-100 dark:bg-purple-900/30", text: "text-purple-800 dark:text-purple-200" }}
             />
-            
-            <StatCard 
-              icon={<FaBook className="text-pink-500 text-2xl" />}
-              title="Stories"
-              value={stats.totalStories || 0}
-              trend="up"
-              trendValue="15%"
-              bgColor="bg-pink-50 dark:bg-pink-900/30"
+            <StatCard
+              title="Travel Stories"
+              value={(adminStats.totalStories || 0).toLocaleString()}
+              icon={<FaBookOpen />}
+              color={{ bg: "bg-pink-100 dark:bg-pink-900/30", text: "text-pink-800 dark:text-pink-200" }}
             />
           </div>
         </div>
       )}
 
-      {/* Additional User Info */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
-        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
-          Account Details
+
+      
+
+      {/* Account Info Section */}
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg">
+        <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-white border-b pb-3 border-gray-200 dark:border-gray-700">
+          Account Information
         </h3>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <InfoItem label="Member Since" value={new Date(currentUser?.createdAt).toLocaleDateString()} />
-          <InfoItem label="Last Login" value={new Date().toLocaleString()} />
-          <InfoItem label="Account Status" value="Active" status="active" />
-          {role === "tour-guide" && (
-            <InfoItem label="Tours Conducted" value="24" />
-          )}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+            <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">
+              BASIC INFORMATION
+            </h4>
+            <div className="space-y-4">
+              <div>
+                <p className="text-xs text-gray-400 dark:text-gray-500">Full Name</p>
+                <p className="font-medium text-gray-800 dark:text-gray-200">
+                  {currentUser?.name || "Not provided"}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs text-gray-400 dark:text-gray-500">Email Address</p>
+                <p className="font-medium text-gray-800 dark:text-gray-200">
+                  {currentUser?.email}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs text-gray-400 dark:text-gray-500">Account Type</p>
+                <p className="font-medium text-gray-800 dark:text-gray-200 flex items-center">
+                  {roleIcon[currentUser?.role]}
+                  <span className="ml-2">{roleLabel[currentUser?.role]}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+            <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">
+              ACCOUNT DETAILS
+            </h4>
+            <div className="space-y-4">
+              <div>
+                <p className="text-xs text-gray-400 dark:text-gray-500">Member Since</p>
+                <p className="font-medium text-gray-800 dark:text-gray-200">
+                  {new Date(currentUser?.created_at).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs text-gray-400 dark:text-gray-500">Account Status</p>
+                <p className="font-medium text-green-600 dark:text-green-400">
+                  Active
+                </p>
+              </div>
+              <div>
+                <p className="text-xs text-gray-400 dark:text-gray-500">Last Updated</p>
+                <p className="font-medium text-gray-800 dark:text-gray-200">
+                  {new Date(currentUser?.updated_at || currentUser?.created_at).toLocaleDateString()}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* <EditProfileModal */}
-       {/* //  user={currentUser} */}
-       {/* //  isOpen={isModalOpen} */}
-       {/* //  setIsModalOpen={setIsModalOpen} */}
-       {/* //  refetch={refetch} */}
-       {/* // />  */}
+      {/* Edit Profile Modal */}
+      {isOpen && (
+        <EditProfileModal
+          user={currentUser}
+          setIsModalOpen={setIsOpen}
+          refetch={refetch}
+        />
+      )}
     </div>
   );
 };
