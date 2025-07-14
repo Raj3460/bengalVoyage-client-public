@@ -9,6 +9,7 @@ import PrivateRouts from "../SecureRout/PrivateRouts";
 import ManageProfile from "../Pages/DashBoard/ManageProfile/ManageProfile";
 import AddPackage from "../Pages/DashBoard/AddPackageAdmin/AddPackage";
 import PackageCardDetails from "../Pages/Home/TourismAndTravel/PackageCardDetails";
+import JoinAsTourGuide from "../Pages/DashBoard/JoinAsTourGuide/JoinAsTourGuide";
 
 export const router = createBrowserRouter([
   {
@@ -32,13 +33,13 @@ export const router = createBrowserRouter([
         Component: Registation,
       },
       {
-        path : "packages/:id",
-        Component : PackageCardDetails
-      }
+        path: "packages/:id",
+        Component: PackageCardDetails,
+      },
     ],
   },
-  
-    {
+
+  {
     path: "/dashboard",
     element: (
       <PrivateRouts>
@@ -46,16 +47,18 @@ export const router = createBrowserRouter([
       </PrivateRouts>
     ),
     children: [
-
       {
-        path:"Manage_Profile",
-        Component : ManageProfile
-      },{
+        path: "Manage_Profile",
+        Component: ManageProfile,
+      },
+      {
         path: "add_package",
-      Component : AddPackage
+        Component: AddPackage,
+      },
+      {
+        path: "Join_as_Tour_guide",
+        Component : JoinAsTourGuide
       }
-    ]
-  
+    ],
   },
-  
 ]);
