@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import UseAxiosSecureApi from "../../../Hooks/Api/UseAxiosSecureApi";
 import LoadingSpinner from "../../../Component/Sheard/LoadingSpinner";
 import ErrorMessage from "../../../Component/Sheard/ErrorMessage";
