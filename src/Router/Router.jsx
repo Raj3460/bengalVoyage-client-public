@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
         Component: Registation,
       },
       {
-        path : "packageCardDetails/:id",
+        path : "packages/:id",
         Component : PackageCardDetails
       }
     ],
