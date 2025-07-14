@@ -82,7 +82,7 @@ const DashBoardLayout = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/profile">
+            <NavLink to="/dashboard/join_as_tour_guide">
               <FaUserEdit /> Join as tour guide
             </NavLink>
           </li>

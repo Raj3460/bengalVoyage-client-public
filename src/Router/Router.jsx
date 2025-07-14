@@ -56,7 +56,7 @@ export const router = createBrowserRouter([
         Component: AddPackage,
       },
       {
-        path: "Join_as_Tour_guide",
+        path: "join_as_tour_guide",
         Component : JoinAsTourGuide
       }
     ],
