@@ -1,43 +1,46 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaUserTie, FaPaperclip, FaCheckCircle } from 'react-icons/fa';
+import { useMutation } from '@tanstack/react-query';
 import UseAxiosSecureApi from '../../../Hooks/Api/UseAxiosSecureApi';
 import useAuth from '../../../Hooks/useAuth';
-
+import LoadingSpinner from '../../../Component/Sheard/LoadingSpinner';
 
 
 const JoinAsTourGuide = () => {
   const [applicationTitle, setApplicationTitle] = useState('');
   const [motivation, setMotivation] = useState('');
   const [cvLink, setCvLink] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const axiosSecure = UseAxiosSecureApi();
   const { user } = useAuth();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const applicationData = {
-        applicantEmail: user.email,
-        applicantName: user.displayName || user.email,
-        applicationTitle,
-        motivation,
-        cvLink,
-        status: 'pending',
-        appliedAt: new Date().toISOString()
-      };
-
-      await axiosSecure.post('/tour-guide-applications', applicationData);
+  const { mutate, isPending, isError, error } = useMutation({
+    mutationFn: async (applicationData) => {
+      const res = await axiosSecure.post('/tour-guide-applications', applicationData);
+      return res.data;
+    },
+    onSuccess: () => {
       setShowSuccessModal(true);
       resetForm();
-    } catch (error) {
-      console.error('Error submitting application:', error);
-    } finally {
-      setIsSubmitting(false);
+    },
+    onError: (error) => {
+      console.error('Mutation error:', error);
     }
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const applicationData = {
+      applicantEmail: user.email,
+      applicantName: user.displayName || user.email,
+      applicationTitle,
+      motivation,
+      cvLink,
+      status: 'pending',
+      appliedAt: new Date().toISOString()
+    };
+    mutate(applicationData);
   };
 
   const resetForm = () => {
@@ -66,6 +69,13 @@ const JoinAsTourGuide = () => {
           <h1 className="text-4xl font-bold text-primary mb-2">Join Our Team</h1>
           <p className="text-xl text-gray-600">Become a certified tour guide and share your passion</p>
         </div>
+
+        {/* Error Message */}
+        {isError && (
+          <div className="mb-6 p-4 bg-red-50 text-red-600 rounded-lg">
+            Error: {error.message || 'Failed to submit application'}
+          </div>
+        )}
 
         {/* Application Form */}
         <motion.div
@@ -136,14 +146,21 @@ const JoinAsTourGuide = () => {
             <div className="pt-4">
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className={`w-full py-3 px-6 rounded-lg font-bold text-white transition-all ${
-                  isSubmitting
+                disabled={isPending}
+                className={`w-full py-3 px-6 rounded-lg font-bold text-white transition-all flex items-center justify-center ${
+                  isPending
                     ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-accent hover:bg-accent/90 shadow-md hover:shadow-lg'
                 }`}
               >
-                {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                {isPending ? (
+                  <>
+                    <LoadingSpinner size="small" className="mr-2" />
+                    Submitting...
+                  </>
+                ) : (
+                  'Submit Application'
+                )}
               </button>
             </div>
           </form>

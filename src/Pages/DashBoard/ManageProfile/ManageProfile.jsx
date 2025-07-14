@@ -124,9 +124,9 @@ const ManageProfile = () => {
             <p className="text-gray-600 dark:text-gray-300 mb-5 max-w-lg">
               Turn your passion for travel into a profession. Apply to become a certified tour guide and start creating unforgettable experiences for fellow travelers.
             </p>
-            <Link to="/dashboard/join_tour_guide">
-              <button className="flex items-center px-5 py-2.5 bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all">
-                Apply Now <FaArrowRight className="ml-2" />
+            <Link to="/dashboard/join_as_tour_guide">
+              <button  className="flex items-center px-5 py-2.5 bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all">
+                Apply As a Tour Guide <FaArrowRight className="ml-2" />
               </button>
             </Link>
           </div>
