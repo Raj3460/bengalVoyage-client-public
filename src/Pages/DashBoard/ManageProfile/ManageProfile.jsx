@@ -72,7 +72,7 @@ const ManageProfile = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className=" px-4 py-8">
       {/* Profile Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-2xl shadow-lg">
         <div className="flex items-start gap-5">
