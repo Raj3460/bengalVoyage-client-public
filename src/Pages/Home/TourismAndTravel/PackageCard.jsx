@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { FiArrowRight } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
 
 const PackageCard = ({ pkg }) => {
-  const navigate = useNavigate();
+  
   const {
     _id,
     title,

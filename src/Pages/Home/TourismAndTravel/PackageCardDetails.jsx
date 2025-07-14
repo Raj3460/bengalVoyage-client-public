@@ -187,7 +187,7 @@ const PackageCardDetails = () => {
             {/* Booking Card */}
             <motion.div 
               variants={itemVariants}
-              className="bg-white rounded-2xl p-6 shadow-lg sticky top-6"
+              className="bg-white rounded-2xl p-6 shadow-lg  top-6"
             >
               <h2 className="text-2xl font-bold text-primary mb-6">Book This Tour</h2>
               <div className="space-y-4">
