@@ -8,6 +8,7 @@ import DashBoardLayout from "../Layout/DashBoardLayout";
 import PrivateRouts from "../SecureRout/PrivateRouts";
 import ManageProfile from "../Pages/DashBoard/ManageProfile/ManageProfile";
 import AddPackage from "../Pages/DashBoard/AddPackageAdmin/AddPackage";
+import PackageCardDetails from "../Pages/Home/TourismAndTravel/PackageCardDetails";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
         path: "register",
         Component: Registation,
       },
+      {
+        path : "packageCardDetails/:id",
+        Component : PackageCardDetails
+      }
     ],
   },
   

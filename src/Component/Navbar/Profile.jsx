@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { FaUser, FaBell, FaSignOutAlt, FaTachometerAlt } from 'react-icons/fa';
-import { Link } from 'react-router'; 
-import UseAxiosSecureApi from '../../Hooks/Api/UseAxiosSecureApi';
-import LoadingSpinner from '../Sheard/LoadingSpinner';
-import useAuth from '../../Hooks/useAuth'; 
+import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import {
+  FaUser,
+  FaBell,
+  FaSignOutAlt,
+  FaTachometerAlt,
+} from "react-icons/fa";
+import { Link } from "react-router"; // ✅ ঠিক করা হয়েছে
+import UseAxiosSecureApi from "../../Hooks/Api/UseAxiosSecureApi";
+import LoadingSpinner from "../Sheard/LoadingSpinner";
+import useAuth from "../../Hooks/useAuth";
 
 const Profile = ({ handleLogOut }) => {
   const axiosSecure = UseAxiosSecureApi();
   const [isOpen, setIsOpen] = useState(false);
-  const { user } = useAuth(); 
+  const { user } = useAuth();
 
   const { data: currentUser = {}, isLoading } = useQuery({
-    queryKey: ['currentUser', user?.email],
+    queryKey: ["currentUser", user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
       const res = await axiosSecure.get(`/users/${user.email}`);
@@ -33,7 +38,7 @@ const Profile = ({ handleLogOut }) => {
         aria-label="User menu"
       >
         <img
-          src={currentUser?.image || '/default-profile.png'}
+          src={currentUser?.image || "/default-profile.png"}
           alt="User profile"
           className="w-10 h-10 rounded-full border-2 border-primary object-cover ring-2 ring-accent hover:ring-secondary transition-all"
         />
@@ -42,15 +47,21 @@ const Profile = ({ handleLogOut }) => {
       {/* Dropdown Menu */}
       {isOpen && (
         <>
-          <div className="fixed inset-0 z-30 bg-transparent" onClick={() => setIsOpen(false)} />
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 z-30 bg-transparent"
+            onClick={() => setIsOpen(false)}
+          />
+          
+          {/* Dropdown Box */}
           <div className="absolute right-0 mt-2 w-64 bg-base-300 rounded-lg shadow-xl py-1 z-40 border border-accent">
             {/* User Info */}
             <div className="px-4 py-3 border-b border-accent bg-gradient-to-r from-primary/10 to-secondary/10">
               <p className="text-sm font-semibold text-primary truncate">
-                {currentUser?.name || 'User'}
+                {currentUser?.name || "User"}
               </p>
               <p className="text-xs text-accent truncate">
-                {currentUser?.email || 'No email'}
+                {currentUser?.email || "No email"}
               </p>
             </div>
 
@@ -62,7 +73,9 @@ const Profile = ({ handleLogOut }) => {
                 onClick={() => setIsOpen(false)}
               >
                 <FaTachometerAlt className="mr-3 text-primary" />
-                <span className="text-gray-700 group-hover:text-primary">Dashboard</span>
+                <span className="text-gray-700 group-hover:text-primary">
+                  Dashboard
+                </span>
               </Link>
 
               <Link
@@ -71,7 +84,9 @@ const Profile = ({ handleLogOut }) => {
                 onClick={() => setIsOpen(false)}
               >
                 <FaBell className="mr-3 text-secondary" />
-                <span className="text-gray-700 group-hover:text-secondary">Offers</span>
+                <span className="text-gray-700 group-hover:text-secondary">
+                  Offers
+                </span>
               </Link>
 
               <Link
@@ -80,7 +95,9 @@ const Profile = ({ handleLogOut }) => {
                 onClick={() => setIsOpen(false)}
               >
                 <FaUser className="mr-3 text-accent" />
-                <span className="text-gray-700 group-hover:text-accent">My Profile</span>
+                <span className="text-gray-700 group-hover:text-accent">
+                  My Profile
+                </span>
               </Link>
             </div>
 
@@ -94,7 +111,9 @@ const Profile = ({ handleLogOut }) => {
                 className="flex items-center w-full px-3 py-2.5 text-sm font-medium rounded-md hover:bg-error/10 group transition-colors"
               >
                 <FaSignOutAlt className="mr-3 text-error" />
-                <span className="text-gray-700 group-hover:text-error">Sign Out</span>
+                <span className="text-gray-700 group-hover:text-error">
+                  Sign Out
+                </span>
               </button>
             </div>
           </div>
