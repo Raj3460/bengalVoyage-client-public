@@ -1,22 +1,22 @@
-import React from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
-import UseAxiosSecureApi from '../../Hooks/Api/UseAxiosSecureApi';
-import LoadingSpinner from '../../Component/Sheard/LoadingSpinner';
-import ErrorMessage from '../../Component/Sheard/ErrorMessage';
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useParams } from "react-router-dom";
+import UseAxiosSecureApi from "../../../Hooks/Api/UseAxiosSecureApi";
+import LoadingSpinner from "../../../Component/Sheard/LoadingSpinner";
+import ErrorMessage from "../../../Component/Sheard/ErrorMessage";
 
 const PackageCardDetails = () => {
   const { id } = useParams();
   const axiosSecure = UseAxiosSecureApi();
 
   // Fetch package details using TanStack Query
-  const { 
-    data: packageDetails, 
-    isLoading, 
-    isError, 
-    error 
+  const {
+    data: packageDetails,
+    isLoading,
+    isError,
+    error,
   } = useQuery({
-    queryKey: ['packageDetails', id],
+    queryKey: ["packageDetails", id],
     queryFn: async () => {
       const res = await axiosSecure.get(`/packages/${id}`);
       return res.data;
@@ -30,7 +30,11 @@ const PackageCardDetails = () => {
   }
 
   if (isError) {
-    return <ErrorMessage message={error.message || 'Failed to load package details'} />;
+    return (
+      <ErrorMessage
+        message={error.message || "Failed to load package details"}
+      />
+    );
   }
 
   return (
@@ -91,7 +95,10 @@ const PackageCardDetails = () => {
               </h2>
               <div className="space-y-4">
                 {packageDetails.tourPlan?.map((plan, index) => (
-                  <div key={index} className="border-l-4 border-primary pl-4 py-2">
+                  <div
+                    key={index}
+                    className="border-l-4 border-primary pl-4 py-2"
+                  >
                     <h3 className="text-lg font-medium text-gray-800">
                       Day {plan.day}: {plan.headline}
                     </h3>
@@ -107,14 +114,16 @@ const PackageCardDetails = () => {
                 <h3 className="font-semibold text-lg mb-3">Departure</h3>
                 <p>{packageDetails.departure}</p>
                 <p className="mt-2">
-                  <span className="font-medium">Time:</span> {packageDetails.departureTime}
+                  <span className="font-medium">Time:</span>{" "}
+                  {packageDetails.departureTime}
                 </p>
               </div>
               <div className="bg-gray-50 p-4 rounded-lg">
                 <h3 className="font-semibold text-lg mb-3">Return</h3>
                 <p>{packageDetails.location}</p>
                 <p className="mt-2">
-                  <span className="font-medium">Time:</span> {packageDetails.returnTime}
+                  <span className="font-medium">Time:</span>{" "}
+                  {packageDetails.returnTime}
                 </p>
               </div>
             </div>
