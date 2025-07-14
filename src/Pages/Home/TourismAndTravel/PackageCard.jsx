@@ -84,7 +84,7 @@ const PackageCard = ({ pkg }) => {
           
           {/* VIEW MORE button with angled edge */}
           <Link 
-            to={`/packageCardDetails/${_id}`}
+            to={`/packages/${_id}`}
             className="relative overflow-hidden bg-blue-500 hover:bg-blue-600 text-white font-bold uppercase text-sm px-6 py-3 transition-colors duration-300"
             style={{
               clipPath: "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)"
