@@ -18,7 +18,7 @@ const DashBoardLayout = () => {
 //   const {roleLoading , role}  = UseUserRole()
 //   console.log("Role from hook:", role); // এটা check করো
   return (
-    <div className="drawer lg:drawer-open">
+    <div className="drawer lg:drawer-open ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col ">
         {/* Navbar */}
