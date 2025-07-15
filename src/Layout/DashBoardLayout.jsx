@@ -14,9 +14,8 @@ import {
 import Logo from "../Component/Logo/Logo";
 // import UseUserRole from "../Hooks/UseUserRole";
 const DashBoardLayout = () => {
-
-//   const {roleLoading , role}  = UseUserRole()
-//   console.log("Role from hook:", role); // এটা check করো
+  //   const {roleLoading , role}  = UseUserRole()
+  //   console.log("Role from hook:", role); // এটা check করো
   return (
     <div className="drawer lg:drawer-open ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -58,9 +57,9 @@ const DashBoardLayout = () => {
         ></label>
         <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
           {/* Sidebar content here */}
-         <div className="my-4 ml-2.5">
-               <Logo></Logo>
-         </div>
+          <div className="my-4 ml-2.5">
+            <Logo></Logo>
+          </div>
           <li>
             <NavLink to="">
               <FaHome /> Home (all)
@@ -87,6 +86,11 @@ const DashBoardLayout = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="my_guide_applications">
+              <FaUserEdit /> My Guide Application
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/dashboard/profile">
               <FaUserEdit /> Add stories (tourist + Guide)
             </NavLink>
@@ -97,15 +101,14 @@ const DashBoardLayout = () => {
             </NavLink>
           </li>
 
-          
           {/* { !roleLoading && role === 'admin' && */}
-            {/* <> */}
-             <li>
+          {/* <> */}
+          <li>
             <NavLink to="/dashboard/AssignRider">
-              <FaMotorcycle  className="inline-block"/> Assign Riders
+              <FaMotorcycle className="inline-block" /> Assign Riders
             </NavLink>
           </li>
-            <li>
+          <li>
             <NavLink to="/dashboard/add_package">
               <FaUserCheck /> Add Package (admin)
             </NavLink>
@@ -116,10 +119,10 @@ const DashBoardLayout = () => {
             </NavLink>
           </li>
 
-        
           <li>
             <NavLink to="/dashboard/makeAdmin">
-              <FaUserShield className="inline-block" /> Manage Candidates (Admin)
+              <FaUserShield className="inline-block" /> Manage Candidates
+              (Admin)
             </NavLink>
           </li>
           {/* </> */}
