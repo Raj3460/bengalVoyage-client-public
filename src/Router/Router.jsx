@@ -11,6 +11,7 @@ import AddPackage from "../Pages/DashBoard/AddPackageAdmin/AddPackage";
 import PackageCardDetails from "../Pages/Home/TourismAndTravel/PackageCardDetails";
 import JoinAsTourGuide from "../Pages/DashBoard/JoinAsTourGuide/JoinAsTourGuide";
 import MyGuideApplications from "../Pages/DashBoard/JoinAsTourGuide/MyGuideApplications";
+import ManageCandidates from "../Pages/DashBoard/ManageCandidates/ManageCandidates";
 
 export const router = createBrowserRouter([
   {
@@ -58,12 +59,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "join_as_tour_guide",
-        Component : JoinAsTourGuide
+        Component: JoinAsTourGuide,
       },
       {
-        path:'my_guide_applications',
-        Component : MyGuideApplications
-      }
+        path: "my_guide_applications",
+        Component: MyGuideApplications,
+      },
+      {
+        path: "manage_candidates",
+        Component: ManageCandidates,
+      },
     ],
   },
 ]);
