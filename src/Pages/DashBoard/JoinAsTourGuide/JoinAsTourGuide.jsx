@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FaUserTie, FaPaperclip, FaCheckCircle } from 'react-icons/fa';
-import { useMutation } from '@tanstack/react-query';
-import UseAxiosSecureApi from '../../../Hooks/Api/UseAxiosSecureApi';
-import useAuth from '../../../Hooks/useAuth';
-import LoadingSpinner from '../../../Component/Sheard/LoadingSpinner';
-
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { FaUserTie, FaPaperclip, FaCheckCircle } from "react-icons/fa";
+import { useMutation } from "@tanstack/react-query";
+import UseAxiosSecureApi from "../../../Hooks/Api/UseAxiosSecureApi";
+import useAuth from "../../../Hooks/useAuth";
+import LoadingSpinner from "../../../Component/Sheard/LoadingSpinner";
 
 const JoinAsTourGuide = () => {
-  const [applicationTitle, setApplicationTitle] = useState('');
-  const [motivation, setMotivation] = useState('');
-  const [cvLink, setCvLink] = useState('');
+  const [applicationTitle, setApplicationTitle] = useState("");
+  const [motivation, setMotivation] = useState("");
+  const [cvLink, setCvLink] = useState("");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const axiosSecure = UseAxiosSecureApi();
   const { user } = useAuth();
 
   const { mutate, isPending, isError, error } = useMutation({
     mutationFn: async (applicationData) => {
-      const res = await axiosSecure.post('/tour-guide-applications', applicationData);
+      const res = await axiosSecure.post(
+        "/tour-guides-applications",
+        applicationData
+      );
       return res.data;
     },
     onSuccess: () => {
@@ -25,8 +27,8 @@ const JoinAsTourGuide = () => {
       resetForm();
     },
     onError: (error) => {
-      console.error('Mutation error:', error);
-    }
+      console.error("Mutation error:", error);
+    },
   });
 
   const handleSubmit = (e) => {
@@ -37,16 +39,16 @@ const JoinAsTourGuide = () => {
       applicationTitle,
       motivation,
       cvLink,
-      status: 'pending',
-      appliedAt: new Date().toISOString()
+      status: "pending",
+      appliedAt: new Date().toISOString(),
     };
     mutate(applicationData);
   };
 
   const resetForm = () => {
-    setApplicationTitle('');
-    setMotivation('');
-    setCvLink('');
+    setApplicationTitle("");
+    setMotivation("");
+    setCvLink("");
   };
 
   return (
@@ -66,14 +68,18 @@ const JoinAsTourGuide = () => {
           >
             <FaUserTie className="text-3xl" />
           </motion.div>
-          <h1 className="text-4xl font-bold text-primary mb-2">Join Our Team</h1>
-          <p className="text-xl text-gray-600">Become a certified tour guide and share your passion</p>
+          <h1 className="text-4xl font-bold text-primary mb-2">
+            Join Our Team
+          </h1>
+          <p className="text-xl text-gray-600">
+            Become a certified tour guide and share your passion
+          </p>
         </div>
 
         {/* Error Message */}
         {isError && (
           <div className="mb-6 p-4 bg-red-50 text-red-600 rounded-lg">
-            Error: {error.message || 'Failed to submit application'}
+            Error: {error.message || "Failed to submit application"}
           </div>
         )}
 
@@ -87,7 +93,10 @@ const JoinAsTourGuide = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Application Title */}
             <div>
-              <label htmlFor="title" className="block text-lg font-medium text-gray-800 mb-2">
+              <label
+                htmlFor="title"
+                className="block text-lg font-medium text-gray-800 mb-2"
+              >
                 Application Title
               </label>
               <input
@@ -103,7 +112,10 @@ const JoinAsTourGuide = () => {
 
             {/* Motivation */}
             <div>
-              <label htmlFor="motivation" className="block text-lg font-medium text-gray-800 mb-2">
+              <label
+                htmlFor="motivation"
+                className="block text-lg font-medium text-gray-800 mb-2"
+              >
                 Why do you want to be a Tour Guide?
               </label>
               <textarea
@@ -119,7 +131,10 @@ const JoinAsTourGuide = () => {
 
             {/* CV Link */}
             <div>
-              <label htmlFor="cvLink" className="block text-lg font-medium text-gray-800 mb-2">
+              <label
+                htmlFor="cvLink"
+                className="block text-lg font-medium text-gray-800 mb-2"
+              >
                 Your CV/Resume Link
               </label>
               <div className="flex items-center">
@@ -138,7 +153,8 @@ const JoinAsTourGuide = () => {
                 />
               </div>
               <p className="mt-2 text-sm text-gray-500">
-                Upload your CV to Google Drive, Dropbox, or similar and paste the shareable link here
+                Upload your CV to Google Drive, Dropbox, or similar and paste
+                the shareable link here
               </p>
             </div>
 
@@ -149,8 +165,8 @@ const JoinAsTourGuide = () => {
                 disabled={isPending}
                 className={`w-full py-3 px-6 rounded-lg font-bold text-white transition-all flex items-center justify-center ${
                   isPending
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-accent hover:bg-accent/90 shadow-md hover:shadow-lg'
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-accent hover:bg-accent/90 shadow-md hover:shadow-lg"
                 }`}
               >
                 {isPending ? (
@@ -159,7 +175,7 @@ const JoinAsTourGuide = () => {
                     Submitting...
                   </>
                 ) : (
-                  'Submit Application'
+                  "Submit Application"
                 )}
               </button>
             </div>
@@ -178,9 +194,12 @@ const JoinAsTourGuide = () => {
             <div className="inline-flex items-center justify-center bg-green-100 text-green-500 p-4 rounded-full mb-4">
               <FaCheckCircle className="text-5xl" />
             </div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-2">Application Submitted!</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
+              Application Submitted!
+            </h2>
             <p className="text-gray-600 mb-6">
-              Thank you for your interest in becoming a tour guide. Our team will review your application and contact you soon.
+              Thank you for your interest in becoming a tour guide. Our team
+              will review your application and contact you soon.
             </p>
             <button
               onClick={() => setShowSuccessModal(false)}
