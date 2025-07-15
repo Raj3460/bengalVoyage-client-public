@@ -120,7 +120,7 @@ const DashBoardLayout = () => {
           </li>
 
           <li>
-            <NavLink to="/dashboard/makeAdmin">
+            <NavLink to="/dashboard/manage_candidates">
               <FaUserShield className="inline-block" /> Manage Candidates
               (Admin)
             </NavLink>
