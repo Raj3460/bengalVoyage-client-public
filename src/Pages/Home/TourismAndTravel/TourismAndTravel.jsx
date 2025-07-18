@@ -5,6 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 import PackageCard from "./PackageCard";
 // import GuideCard from "./GuideCard";
 import UseAxiosSecureApi from "../../../Hooks/Api/UseAxiosSecureApi";
+import GuideCard from "./GuideCard";
+import LoadingSpinner from "../../../Component/Sheard/LoadingSpinner";
 
 /**
  * TravelGuideTabs
@@ -34,31 +36,34 @@ const TravelGuideTabs = () => {
   console.log(packages);
 
   /** Guides — random 6 each request */
-  // const {
-  //   data: guides = [],
-  //   isLoading: guidesLoading,
-  //   refetch: refetchGuides,
-  //   error: guidesError,
-  // } = useQuery({
-  //   queryKey: ["randomGuides"],
-  //   queryFn: async () => {
-  //     const res = await axiosSecure.get("/tour-guides/random?count=6");
-  //     return res.data;
-  //   },
-  //   staleTime: 1000 * 60 * 5,
-  // });
+  const {
+    data: guides = [],
+    isLoading: guidesLoading,
+    refetch: refetchGuides,
+    error: guidesError,
+  } = useQuery({
+    queryKey: ["randomGuides"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/users-random");
+      return res.data;
+    },
+    staleTime: 1000 * 60 * 5,
+  });
+  console.log('guides', guides);
 
-  // // Loading & error states
-  // if (packagesLoading || guidesLoading) {
-  //   return <div className="text-center py-10 font-medium">Loading...</div>;
-  // }
-  // if (packagesError || guidesError) {
-  //   return (
-  //     <div className="text-center text-red-600 py-10">
-  //       Something went wrong. Please try again later.
-  //     </div>
-  //   );
-  // }
+  
+
+  // Loading & error states
+  if (packagesLoading || guidesLoading) {
+    return <div className="text-center"><LoadingSpinner></LoadingSpinner></div>;
+  }
+  if (packagesError) {
+    return (
+      <div className="text-center text-2xl text-red-600 py-10">
+        Something went wrong. Please try again later.
+      </div>
+    );
+  }
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
@@ -71,7 +76,7 @@ const TravelGuideTabs = () => {
           {/* clicking the tab also triggers a fresh random fetch */}
           <Tab onClick={refetchPackages}>Our Packages</Tab>
           <Tab 
-          // onClick={refetchGuides}
+          onClick={refetchGuides}
           >Meet Our Tour Guides</Tab>
         </TabList>
 
@@ -85,9 +90,9 @@ const TravelGuideTabs = () => {
 
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-4">
-            {/* {guides.map((guide) => (
+            {guides.map((guide) => (
               <GuideCard key={guide._id} guide={guide} />
-            ))} */}
+            ))}
           </div>
         </TabPanel>
       </Tabs>

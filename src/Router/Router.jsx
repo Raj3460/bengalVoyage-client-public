@@ -12,6 +12,11 @@ import PackageCardDetails from "../Pages/Home/TourismAndTravel/PackageCardDetail
 import JoinAsTourGuide from "../Pages/DashBoard/JoinAsTourGuide/JoinAsTourGuide";
 import MyGuideApplications from "../Pages/DashBoard/JoinAsTourGuide/MyGuideApplications";
 import ManageCandidates from "../Pages/DashBoard/ManageCandidates/ManageCandidates";
+import MyBookings from "../Pages/DashBoard/MyBookings";
+import Payment from "../Pages/DashBoard/MyPayment/Payment";
+import AddStory from "../Pages/DashBoard/Story/AddStory";
+import ManageStory from "../Pages/DashBoard/Story/ManageStory";
+import UpdateStory from "../Pages/DashBoard/Story/UpdateStory";
 
 export const router = createBrowserRouter([
   {
@@ -52,6 +57,26 @@ export const router = createBrowserRouter([
       {
         path: "Manage_Profile",
         Component: ManageProfile,
+      },
+      {
+        path: "my_bookings",
+        Component: MyBookings,
+      },
+      {
+        path: "add_story",
+        Component: AddStory,
+      },
+      {
+        path: "manage_story",
+        Component: ManageStory,
+      },
+      {
+        path: 'update-story/:id',
+        Component: UpdateStory
+      },
+      {
+        path: "payment/:bookingId",
+        Component: Payment,
       },
       {
         path: "add_package",

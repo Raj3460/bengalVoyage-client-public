@@ -71,12 +71,17 @@ const DashBoardLayout = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/paymentHistory">
+            <NavLink to="/dashboard/my_bookings">
               <FaUserEdit /> My Bookings (tourist)
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/track">
+            <NavLink to="/dashboard/add_story">
+              <FaUserEdit /> Add stories (tourist + Guide)
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/manage_story">
               <FaSearch /> Manage stories (tourist + Guide)
             </NavLink>
           </li>
@@ -90,11 +95,7 @@ const DashBoardLayout = () => {
               <FaUserEdit /> My Guide Application
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/dashboard/profile">
-              <FaUserEdit /> Add stories (tourist + Guide)
-            </NavLink>
-          </li>
+          
           <li>
             <NavLink to="/dashboard/profile">
               <FaUserEdit /> My Assigned Tours (Guide + Admin)
