@@ -134,7 +134,7 @@ const StoryCard = ({ story, refetch }) => {
   };
 
   return (
-    <div className="card bg-white shadow-md hover:shadow-lg transition-shadow duration-300 rounded-lg">
+    <div className="card bg-base-300 shadow-md hover:shadow-lg transition-shadow duration-300 rounded-lg">
       {/* Facebook-style Image Grid */}
       {renderImageGrid()}
 

@@ -4,8 +4,10 @@ import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import { useEffect, useState } from 'react';
 import UseAxiosSecureApi from '../../../Hooks/Api/UseAxiosSecureApi';
+import useAxiosApi from '../../../Hooks/Api/useAxiosApi';
 
 const UpdateStory = () => {
+       const axioxNormal = useAxiosApi()
   const { id } = useParams();
   const navigate = useNavigate();
   const axiosSecure = UseAxiosSecureApi();
@@ -89,25 +91,70 @@ const UpdateStory = () => {
     }
   };
 
+//   const uploadNewImages = async (files) => {
+//     try {
+//       const formData = new FormData();
+//       files.forEach(file => formData.append('images', file));
+      
+//       const uploadRes = await axiosSecure.post('/upload-images', formData, {
+//         headers: {
+//           'Content-Type': 'multipart/form-data'
+//         }
+//       });
+      
+//       if (uploadRes.data.success) {
+//         await handleImageUpdate([], uploadRes.data.urls);
+//       }
+//     } catch (error) {
+//       console.error('Upload error:', error);
+//       throw error;
+//     }
+//   };
   const uploadNewImages = async (files) => {
-    try {
+  setIsImageUploading(true);
+  try {
+    const uploadedUrls = [];
+    
+    // Upload each file sequentially to ImgBB
+    for (const file of files) {
       const formData = new FormData();
-      files.forEach(file => formData.append('images', file));
+      formData.append('image', file);
       
-      const uploadRes = await axiosSecure.post('/upload-images', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
+      const uploadRes = await axioxNormal.post(
+        `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_upload_key}`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
         }
-      });
-      
+      );
+
       if (uploadRes.data.success) {
-        await handleImageUpdate([], uploadRes.data.urls);
+        uploadedUrls.push(uploadRes.data.data.url);
+      } else {
+        throw new Error('Image upload failed');
       }
-    } catch (error) {
-      console.error('Upload error:', error);
-      throw error;
     }
-  };
+
+    // Add new images to story
+    if (uploadedUrls.length > 0) {
+      await handleImageUpdate([], uploadedUrls);
+    }
+
+    return uploadedUrls;
+  } catch (error) {
+    console.error('Upload error:', error);
+    Swal.fire({
+      title: 'Error!',
+      text: 'Failed to upload images to ImgBB',
+      icon: 'error'
+    });
+    throw error;
+  } finally {
+    setIsImageUploading(false);
+  }
+};
 
   if (isLoading) return (
     <div className="flex justify-center items-center h-64">

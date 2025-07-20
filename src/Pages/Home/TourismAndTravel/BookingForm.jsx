@@ -8,19 +8,18 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
   const [startDate, setStartDate] = useState(new Date());
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
-  const [selectedGuide, setSelectedGuide] = useState("");
-  // console.log(tourGuides);
+  const [selectedGuideId, setSelectedGuideId] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!user) return; // Prevent submission if not logged in
+    if (!user || !selectedGuideId) return;
     
     const totalPrice = packageDetails.price * (adults + children * 0.5);
     
     onSubmit({
       price: totalPrice,
       tourDate: startDate,
-      tourGuide: selectedGuide,
+      tourGuide: selectedGuideId, // Storing the guide's ID
       adults,
       children
     });
@@ -33,6 +32,9 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
   const discount = packageDetails.oldPrice 
     ? (packageDetails.oldPrice - packageDetails.price) * adults 
     : 0;
+
+  // Find the selected guide's details
+  // const selectedGuide = tourGuides.find(guide => guide._id === selectedGuideId);
 
   return (
     <motion.div 
@@ -136,18 +138,19 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
               Select Tour Guide
             </label>
             <select
-              value={selectedGuide}
-              onChange={(e) => setSelectedGuide(e.target.value)}
+              value={selectedGuideId}
+              onChange={(e) => setSelectedGuideId(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
               required
             >
               <option value="">-- Select Guide --</option>
               {tourGuides.map((guide) => (
-                <option key={guide._id} >
-                  {guide.name} 
+                <option key={guide._id} value={guide._id}>
+                  {guide.name} ({guide.specialization || 'Tour Guide'})
                 </option>
               ))}
             </select>
+           
           </div>
 
           {/* Price Summary */}
@@ -177,7 +180,7 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
           <button 
             type="submit"
             className={`w-full ${colors.primary.bg} ${colors.primary.hover} text-white font-bold py-3 px-4 rounded-lg transition-all mt-4 shadow-md`}
-            disabled={!user}
+            disabled={!user || !selectedGuideId}
           >
             {user ? "Book Now" : "Login to Book"}
           </button>

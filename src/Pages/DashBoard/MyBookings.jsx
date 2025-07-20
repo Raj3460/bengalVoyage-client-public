@@ -85,20 +85,21 @@ const MyBookings = () => {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">My Bookings</h1>
       
-      <div className="bg-white rounded-lg shadow overflow-hidden">
+      <div className="bg-base-300 rounded-lg shadow overflow-hidden">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+            <thead className="bg-secondary text-black">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Package</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tour Guide</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tour Date</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Tourist</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Package</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Tour Guide</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Tour Date</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Price</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Status</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Actions</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className=" divide-y divide-gray-200">
               {loading ? (
                 <tr>
                   <td colSpan="6" className="px-6 py-4 text-center">
@@ -109,26 +110,29 @@ const MyBookings = () => {
                 </tr>
               ) : bookings.length === 0 ? (
                 <tr>
-                  <td colSpan="6" className="px-6 py-4 text-center text-gray-500">
+                  <td colSpan="6" className="px-6 py-4 text-center">
                     No bookings found
                   </td>
                 </tr>
               ) : (
                 bookings.map((booking) => (
                   <tr key={booking._id}>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-gray-900">{booking.packageName}</div>
+                    <td>
+                      <img src={booking.touristImage} className='w-3/4 rounded-4xl p-1' alt={booking.touristName} />
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{booking.tourGuide}</div>
+                      <div className="text-sm font-medium ">{booking.packageName}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">
+                      <div className="text-sm ">{booking.tourGuide}</div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="text-sm ">
                         {new Date(booking.tourDate).toLocaleDateString()}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">${booking.price}</div>
+                      <div className="text-sm ">Tk {booking.price}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {statusBadge(booking.status)}

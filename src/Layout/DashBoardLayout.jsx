@@ -97,25 +97,21 @@ const DashBoardLayout = () => {
           </li>
           
           <li>
-            <NavLink to="/dashboard/profile">
-              <FaUserEdit /> My Assigned Tours (Guide + Admin)
+            <NavLink to="/dashboard/assign_tours">
+              <FaUserEdit /> My Assigned Tours (Guide )
             </NavLink>
           </li>
 
           {/* { !roleLoading && role === 'admin' && */}
-          {/* <> */}
-          <li>
-            <NavLink to="/dashboard/AssignRider">
-              <FaMotorcycle className="inline-block" /> Assign Riders
-            </NavLink>
-          </li>
+          
+
           <li>
             <NavLink to="/dashboard/add_package">
               <FaUserCheck /> Add Package (admin)
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/pending-riders">
+            <NavLink to="/dashboard/manage_users">
               <FaUserClock /> (ManAge Users) (admin)
             </NavLink>
           </li>

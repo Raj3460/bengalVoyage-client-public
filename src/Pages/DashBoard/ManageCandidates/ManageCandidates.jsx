@@ -5,6 +5,7 @@ import { FaUserTie, FaCheckCircle, FaTimesCircle, FaEye, FaClock, FaFilePdf } fr
 import { format, parseISO } from 'date-fns';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import LoadingSpinner from '../../../Component/Sheard/LoadingSpinner';
 
 const MySwal = withReactContent(Swal);
 
@@ -166,20 +167,20 @@ const ManageCandidates = () => {
     }
   });
 
-  if (isLoading) return <p className="text-center p-10">Loading applications...</p>;
+  if (isLoading) return <LoadingSpinner></LoadingSpinner>
 
   return (
-    <div className="p-8 bg-white rounded-2xl shadow-xl">
+    <div className="p-8 bg-base-300 rounded-2xl shadow-xl">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-bold text-gray-800">Tour Guide Applications</h2>
-        <span className="badge badge-lg badge-primary">
+        <h2 className="text-3xl font-bold ">Tour Guide Applications</h2>
+        <span className="badge text-black font-bold badge-lg badge-primary">
           {applications.length} {applications.length === 1 ? 'Application' : 'Applications'}
         </span>
       </div>
 
       <div className="overflow-x-auto rounded-lg border border-gray-100">
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gradient-to-r from-blue-50 to-indigo-50">
+          <thead className="bg-gradient-to-r from-primary to-primary ">
             <tr>
               <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Title</th>
               <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Applicant</th>

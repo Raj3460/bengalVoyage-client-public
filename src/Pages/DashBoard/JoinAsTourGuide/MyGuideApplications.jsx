@@ -131,7 +131,7 @@ const MyGuideApplications = () => {
             <div className="p-6">
               {applications?.data?.length > 0 ? (
                 <div className="overflow-x-auto">
-                  <table className="table table-zebra">
+                  <table className="table table-zebra ">
                     {/* Table Head */}
                     <thead>
                       <tr>

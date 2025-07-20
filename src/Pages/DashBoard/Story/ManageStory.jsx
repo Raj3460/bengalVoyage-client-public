@@ -5,7 +5,7 @@ import LoadingSpinner from "../../../Component/Sheard/LoadingSpinner";
 import UseAxiosSecureApi from "../../../Hooks/Api/UseAxiosSecureApi";
 import StoryCard from "./StoryCard";
 
-const ManageStories = () => {
+const ManageStory = () => {
   const { user } = useAuth();
   const axiosSecure = UseAxiosSecureApi();
 
@@ -42,4 +42,4 @@ const ManageStories = () => {
   );
 };
 
-export default ManageStories;
+export default ManageStory;

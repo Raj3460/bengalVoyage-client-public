@@ -17,6 +17,9 @@ import Payment from "../Pages/DashBoard/MyPayment/Payment";
 import AddStory from "../Pages/DashBoard/Story/AddStory";
 import ManageStory from "../Pages/DashBoard/Story/ManageStory";
 import UpdateStory from "../Pages/DashBoard/Story/UpdateStory";
+import ManageUsersByAdmin from "../Pages/DashBoard/ManageUserAdmin/ManageUsersByAdmin";
+import AssignedTours from "../Pages/DashBoard/AssignedTours.jsx/AssignedTours";
+import CommunityStroies from "../Pages/CommunityPage/CommunityStroies";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "forbidden",
         Component: Forbidden,
+      },
+      {
+        path: "community",
+        Component: CommunityStroies,
       },
       {
         path: "register",
@@ -63,6 +70,10 @@ export const router = createBrowserRouter([
         Component: MyBookings,
       },
       {
+        path: "assign_tours",
+        Component: AssignedTours,
+      },
+      {
         path: "add_story",
         Component: AddStory,
       },
@@ -71,8 +82,8 @@ export const router = createBrowserRouter([
         Component: ManageStory,
       },
       {
-        path: 'update-story/:id',
-        Component: UpdateStory
+        path: "update-story/:id",
+        Component: UpdateStory,
       },
       {
         path: "payment/:bookingId",
@@ -93,6 +104,10 @@ export const router = createBrowserRouter([
       {
         path: "manage_candidates",
         Component: ManageCandidates,
+      },
+      {
+        path: "manage_users",
+        Component: ManageUsersByAdmin,
       },
     ],
   },
