@@ -55,11 +55,11 @@ const DashBoardLayout = () => {
   }
 
   return (
-    <div className="drawer lg:drawer-open">
+    <div className="drawer lg:drawer-open  left-0 z-50">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
 
       <div className="drawer-content flex flex-col">
-        <div className="navbar bg-base-300 lg:hidden">
+        <div className="navbar  lg:hidden">
           <div className="flex-none">
             <label
               htmlFor="dashboard-drawer"

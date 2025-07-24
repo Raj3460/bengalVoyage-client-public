@@ -4,7 +4,7 @@ import { FaCode, FaServer, FaMobileAlt, FaUserTie } from "react-icons/fa";
 
 const AboutMe = () => {
   return (
-    <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="about" className="py-20 ">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -13,7 +13,7 @@ const AboutMe = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-4xl font-bold text-gray-900 dark:text-white mb-4"
+            className="text-4xl font-bold -900 dark:text-white mb-4"
           >
             About <span className="text-blue-600 dark:text-blue-400">Me</span>
           </motion.h2>
@@ -22,7 +22,7 @@ const AboutMe = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+            className="text-lg -600 dark:-300 max-w-2xl mx-auto"
           >
             Passionate developer creating digital solutions that matter
           </motion.p>
@@ -56,11 +56,11 @@ const AboutMe = () => {
             viewport={{ once: true }}
             className="w-full lg:w-2/3 space-y-6"
           >
-            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">
+            <h3 className="text-2xl font-semibold -800 dark:text-white">
               Full Stack Developer with a Passion for <span className="text-blue-600 dark:text-blue-400">Problem Solving</span>
             </h3>
             
-            <div className="space-y-4 text-gray-600 dark:text-gray-300">
+            <div className="space-y-4 -600 dark:-300">
               <p>
                 I'm a self-taught developer specializing in the <strong>MERN stack</strong> (MongoDB, Express, React, Node.js) with over a year of hands-on experience building web applications. My journey into programming began with a curiosity about how technology solves real-world problems.
               </p>
@@ -91,8 +91,8 @@ const AboutMe = () => {
                   className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 dark:border-gray-700"
                 >
                   <div className="text-blue-600 dark:text-blue-400 mb-2">{item.icon}</div>
-                  <h4 className="font-medium text-gray-800 dark:text-white">{item.title}</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{item.desc}</p>
+                  <h4 className="font-medium -800 dark:text-white">{item.title}</h4>
+                  <p className="text-sm -600 dark:-400">{item.desc}</p>
                 </motion.div>
               ))}
             </div>

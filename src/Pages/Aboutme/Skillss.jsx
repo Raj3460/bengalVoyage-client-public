@@ -22,7 +22,7 @@ const Skillss = () => {
     { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-400" />, level: 90 },
     { name: "DaisyUI", icon: <GiDaisy className="text-purple-500" />, level: 75 },
     { name: "MongoDB", icon: <SiMongodb className="text-green-500" />, level: 70 },
-    { name: "Express.js", icon: <SiExpress className="text-gray-800 dark:text-white" />, level: 75 },
+    { name: "Express.js", icon: <SiExpress className="-800 dark:text-white" />, level: 75 },
     { name: "Node.js", icon: <SiNodedotjs className="text-green-600" />, level: 75 },
     { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" />, level: 70 },
     { name: "Firebase", icon: <SiFirebase className="text-yellow-500" />, level: 65 },
@@ -32,15 +32,15 @@ const Skillss = () => {
   return (
     <section
       id="skills"
-      className="py-16 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800"
+      className="py-16 "
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div data-aos="fade-down" className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-4xl font-bold -900 dark:text-white">
             My <span className="text-blue-600 dark:text-blue-400">Skills</span>
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mt-2">
+          <p className="text-lg -600 dark:-300 mt-2">
             Technologies I've worked with and my proficiency level
           </p>
         </div>
@@ -51,7 +51,7 @@ const Skillss = () => {
             {skills.concat(skills).map((skill, index) => (
               <div
                 key={index}
-                className="inline-flex items-center space-x-2 text-xl font-medium text-gray-800 dark:text-white"
+                className="inline-flex items-center space-x-2 text-xl font-medium -800 dark:text-white"
               >
                 {skill.icon}
                 <span>{skill.name}</span>
@@ -70,7 +70,7 @@ const Skillss = () => {
               className="bg-white dark:bg-gray-800 p-5 rounded-xl shadow hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex flex-col items-center"
             >
               <div className="text-4xl mb-3">{skill.icon}</div>
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+              <h3 className="text-lg font-semibold -800 dark:text-white mb-2">
                 {skill.name}
               </h3>
               <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
@@ -79,7 +79,7 @@ const Skillss = () => {
                   style={{ width: `${skill.level}%` }}
                 ></div>
               </div>
-              <span className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+              <span className="text-sm -500 dark:-400 mt-2">
                 {skill.level}%
               </span>
             </div>

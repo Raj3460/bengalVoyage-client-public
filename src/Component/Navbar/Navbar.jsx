@@ -4,12 +4,12 @@ import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 import Profile from "./Profile";
 import Logo from "../Logo/Logo";
-import { ThemeContext } from "../Sheard/ThemeProvider/ThemeProvider";
+
 
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
-   const { theme, toggleTheme } = useContext(ThemeContext);
+  
 
   const handleLogOut = () => {
     Swal.fire({
@@ -70,7 +70,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-300 shadow-sm sticky top-0 z-10">
+    <div className="navbar bg-base-300 shadow-sm sticky top-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -128,9 +128,7 @@ const Navbar = () => {
             <Link to="/login">
               <button className="btn btn-primary text-black">Login</button>
             </Link>{" "}
-            <Link to="/register">
-              <button className="btn btn-primary text-black">Register</button>
-            </Link>
+           
           </div>
         )}
       </div>

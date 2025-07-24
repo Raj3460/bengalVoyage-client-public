@@ -8,7 +8,7 @@ const resumeUrl = "https://docs.google.com/document/d/1Lm6KiBy_455-deVzBAkgQ9-Hj
 
 const MyBanner = () => {
   return (
-    <div className=" flex items-center justify-center bg-gradient-to-br  from-blue-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-20 px-8">
+    <div className=" flex items-center justify-center py-20 px-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
           {/* Profile Image */}
@@ -38,14 +38,14 @@ const MyBanner = () => {
             <h4 className="text-lg md:text-xl text-blue-600 dark:text-blue-400 mb-2 font-medium">
               Hi, I am
             </h4>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold -800 dark:text-white mb-4">
               Raj Kumar Sarkar
             </h1>
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mb-8"
+              className="text-lg md:text-xl -600 dark:-300 max-w-2xl mb-8"
             >
               I specialize in creating performant, responsive, and maintainable
               web applications using <span className="text-blue-600 dark:text-blue-400 font-medium">React</span>, <span className="text-blue-600 dark:text-blue-400 font-medium">TailwindCSS</span>, <span className="text-blue-600 dark:text-blue-400 font-medium">Express.js</span>, and <span className="text-blue-600 dark:text-blue-400 font-medium">MongoDB</span>.
@@ -79,7 +79,7 @@ const MyBanner = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                    className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full -700 dark:-300 hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
                   >
                     {social.icon}
                   </motion.a>

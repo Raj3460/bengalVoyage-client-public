@@ -27,7 +27,7 @@ const Overview = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-base-200 to-base-100">
+    <section className="py-16 px-4 ">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div

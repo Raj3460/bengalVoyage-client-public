@@ -32,7 +32,7 @@ const ProjectCard = ({ project }) => {
   }, [project.images.length]);
 
   return (
-    <div className="flex flex-col lg:flex-row h-full bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+    <div className="flex flex-col lg:flex-row h-full  rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
       {/* Image Section */}
       <div className="lg:w-1/2 h-64 lg:h-auto relative">
         {project.images.map((img, idx) => (

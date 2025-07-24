@@ -44,7 +44,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800"
+      className="py-20 "
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -54,10 +54,10 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl font-bold -900 dark:text-white mb-4">
             Get In <span className="text-blue-600 dark:text-blue-400">Touch</span>
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg -600 dark:-300 max-w-2xl mx-auto">
             Have a project in mind or want to connect? Feel free to reach out!
           </p>
         </motion.div>
@@ -71,7 +71,7 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="w-full lg:w-1/2 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg"
           >
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+            <h3 className="text-2xl font-bold -800 dark:text-white mb-6">
               Contact Details
             </h3>
 
@@ -81,10 +81,10 @@ const Contact = () => {
                   <FaPhone className="text-blue-600 dark:text-blue-400 text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-800 dark:text-white">Phone</h4>
+                  <h4 className="font-medium -800 dark:text-white">Phone</h4>
                   <a
                     href="tel:+8801787893460"
-                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                    className="-600 dark:-400 hover:text-blue-600 dark:hover:text-blue-400"
                   >
                     +8801787893460
                   </a>
@@ -96,10 +96,10 @@ const Contact = () => {
                   <FaEnvelope className="text-blue-600 dark:text-blue-400 text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-800 dark:text-white">Email</h4>
+                  <h4 className="font-medium -800 dark:text-white">Email</h4>
                   <a
                     href="mailto:sarkarrajkumar3460@gmail.com"
-                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                    className="-600 dark:-400 hover:text-blue-600 dark:hover:text-blue-400"
                   >
                     sarkarrajkumar3460@gmail.com
                   </a>
@@ -111,15 +111,15 @@ const Contact = () => {
                   <FaMapMarkerAlt className="text-blue-600 dark:text-blue-400 text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-800 dark:text-white">Location</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Dhaka, Bangladesh</p>
+                  <h4 className="font-medium -800 dark:text-white">Location</h4>
+                  <p className="-600 dark:-400">Dhaka, Bangladesh</p>
                 </div>
               </div>
             </div>
 
             {/* Social Links */}
             <div className="mt-8">
-              <h4 className="font-medium text-gray-800 dark:text-white mb-4">
+              <h4 className="font-medium -800 dark:text-white mb-4">
                 Connect With Me
               </h4>
               <div className="flex space-x-4">
@@ -127,7 +127,7 @@ const Contact = () => {
                   href="https://github.com/Raj3460"
                   target="_blank"
                   whileHover={{ y: -3 }}
-                  className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900"
+                  className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full -700 dark:-300 hover:bg-blue-100 dark:hover:bg-blue-900"
                 >
                   <FiGithub />
                 </motion.a>
@@ -135,7 +135,7 @@ const Contact = () => {
                   href="https://www.linkedin.com/in/raj-kumar-sarkar-04026b346/"
                   target="_blank"
                   whileHover={{ y: -3 }}
-                  className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900"
+                  className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full -700 dark:-300 hover:bg-blue-100 dark:hover:bg-blue-900"
                 >
                   <FiLinkedin />
                 </motion.a>
@@ -150,13 +150,13 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="w-full lg:w-1/2 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg"
           >
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+            <h3 className="text-2xl font-bold -800 dark:text-white mb-6">
               Send Me a Message
             </h3>
 
             <form ref={form} onSubmit={sendEmail} className="space-y-6">
               <div>
-                <label className="block text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block -700 dark:-300 mb-2">
                   Your Name
                 </label>
                 <input
@@ -169,7 +169,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block -700 dark:-300 mb-2">
                   Your Email
                 </label>
                 <input
@@ -182,7 +182,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block -700 dark:-300 mb-2">
                   Your Message
                 </label>
                 <textarea

@@ -155,7 +155,7 @@ const CommunityStories = () => {
   }
   
   return (
-    <div className="container mx-auto px-4 py-8 bg-base-300">
+    <div className="container mx-auto px-4 py-8 ">
       <ScrollToTop /> 
       <motion.h1
         className="text-4xl md:text-5xl font-extrabold text-center text-blue-700 mb-12 drop-shadow-lg"

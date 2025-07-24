@@ -60,7 +60,7 @@ const TouristDashboardHome = () => {
         <div className="p-3 rounded-lg bg-purple-100 dark:bg-purple-900/50">
           <MdAdminPanelSettings className="text-3xl text-purple-600 dark:text-purple-400" />
         </div>
-        <h2 className="text-2xl font-bold">Tourist Dashboard Overview</h2>
+        <h2 className="text-2xl font-bold"> Dashboard Overview</h2>
       </div>
 
       {/* Stat Cards */}

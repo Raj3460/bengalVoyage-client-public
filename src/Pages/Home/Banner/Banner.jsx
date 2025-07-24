@@ -1,31 +1,35 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
 import { FaArrowRight } from "react-icons/fa";
-import img1 from "../../../assets/img1t.jpg";
-import banner3 from "../../../assets/banner3.jpg";
-import banner1 from "../../../assets/banner2.jpg";
+import { Link } from "react-router-dom"; // React Router এর লিঙ্ক ইম্পোর্ট করুন
 
 const slides = [
   {
     id: 1,
     title: "Explore the Hidden Beauty of Sundarbans",
     subtitle: "Join our guided mangrove adventures today!",
-    img: img1,
+    img: '/img1t.jpg',
     cta: "Explore Now",
+    link: "community", // লিঙ্ক পাথ যোগ করুন
+    target: "_self" // লিঙ্ক টার্গেট (নতুন ট্যাবে খুলতে চাইলে "_blank" ব্যবহার করুন)
   },
   {
     id: 2,
     title: "Heritage of Mahasthangarh",
     subtitle: "Walk through thousands of years of history",
-    img: banner3,
+    img: 'banner3.jpg',
     cta: "Book A Tour",
+    link: "/allTrips",
+    target: "_self"
   },
   {
     id: 3,
     title: "Local Tour Guides You Can Trust",
     subtitle: "Real people. Real experiences. Local insights.",
-    img: banner1,
+    img: '/banner2.jpg',
     cta: "Meet Our Guides",
+    link: "/tour-guides",
+    target: "_self"
   },
 ];
 
@@ -50,14 +54,22 @@ const Banner = () => {
             {/* Overlay with gradient for better text visibility */}
             <div className="absolute inset-0  w-full h-full flex items-center justify-start px-6 sm:px-12 lg:px-24">
               <Fade direction="left" cascade damping={0.2} triggerOnce>
-                <div className="max-w-xl text-secondary space-y-4">
+              <div className="max-w-xl text-secondary space-y-4">
                   <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                     {slide.title}
                   </h1>
                   <p className="text-lg md:text-xl font-bold text-secondary">{slide.subtitle}</p>
-                  <button className="btn btn-primary mt-6 group flex items-center gap-2 hover:gap-3 transition-all duration-300">
+                  
+                  {/* CTA বাটনে লিঙ্ক যোগ করুন */}
+                  <button>
+                    <Link 
+                    to={slide.link} 
+                    target={slide.target}
+                    className="btn btn-primary mt-6 group flex items-center gap-2 hover:gap-3 transition-all duration-300"
+                  >
                     {slide.cta} 
                     <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
                   </button>
                 </div>
               </Fade>

@@ -11,6 +11,7 @@ import TravelTipsSection from "./TravelTipsSection";
 const Home = () => {
   return (
     <div className="text-5xl">
+      
       <ScrollToTop />
       <Banner></Banner>
       <Overview></Overview>
