@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import { useEffect, useState } from 'react';
@@ -46,7 +46,7 @@ const UpdateStory = () => {
           timer: 1500,
           showConfirmButton: false
         }).then(() => {
-          navigate('/dashboard/manage-stories');
+          navigate('/dashboard/manage_story');
         });
       }
     } catch (error) {
@@ -78,6 +78,7 @@ const UpdateStory = () => {
           timer: 1500,
           showConfirmButton: false
         });
+        
       }
     } catch (error) {
       console.error('Image update error:', error);
@@ -91,25 +92,6 @@ const UpdateStory = () => {
     }
   };
 
-//   const uploadNewImages = async (files) => {
-//     try {
-//       const formData = new FormData();
-//       files.forEach(file => formData.append('images', file));
-      
-//       const uploadRes = await axiosSecure.post('/upload-images', formData, {
-//         headers: {
-//           'Content-Type': 'multipart/form-data'
-//         }
-//       });
-      
-//       if (uploadRes.data.success) {
-//         await handleImageUpdate([], uploadRes.data.urls);
-//       }
-//     } catch (error) {
-//       console.error('Upload error:', error);
-//       throw error;
-//     }
-//   };
   const uploadNewImages = async (files) => {
   setIsImageUploading(true);
   try {
@@ -287,11 +269,12 @@ const UpdateStory = () => {
           <button 
             type="submit" 
             className="btn btn-primary"
+           
             disabled={isSubmitting || isImageUploading}
           >
             {isSubmitting ? (
               <>
-                <span className="loading loading-spinner"></span>
+                <span className="loading text-black loading-spinner"></span>
                 Updating...
               </>
             ) : 'Update Story'}

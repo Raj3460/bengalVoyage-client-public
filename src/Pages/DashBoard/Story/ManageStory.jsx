@@ -4,9 +4,12 @@ import useAuth from "../../../Hooks/useAuth";
 import LoadingSpinner from "../../../Component/Sheard/LoadingSpinner";
 import UseAxiosSecureApi from "../../../Hooks/Api/UseAxiosSecureApi";
 import StoryCard from "./StoryCard";
+import { useEffect } from "react";
 
 const ManageStory = () => {
-  const { user } = useAuth();
+  
+  
+  const { user , loading} = useAuth();
   const axiosSecure = UseAxiosSecureApi();
 
   const {
@@ -15,13 +18,32 @@ const ManageStory = () => {
     refetch,
   } = useQuery({
     queryKey: ["stories", user?.email],
+      enabled: !!user?.email && !loading,
     queryFn: () =>
       axiosSecure
         .get(`/stories/user/${user?.email}`)
         .then((res) => res.data.data),
   });
 
-  if (isLoading) return <LoadingSpinner />;
+
+
+
+
+
+useEffect(() => {
+  if (!loading && user?.email) {
+    console.log("Running refetch for user:", user.email);
+    refetch();
+  }
+}, [user?.email, loading, refetch]);
+
+
+
+  if (isLoading || loading)
+    {
+    return <LoadingSpinner />;
+    }
+      
 
   return (
     <div className="container mx-auto p-4">

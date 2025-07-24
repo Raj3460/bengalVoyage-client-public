@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 import UseAxiosSecureApi from '../../Hooks/Api/UseAxiosSecureApi';
 import useAuth from '../../Hooks/useAuth';
@@ -95,6 +95,7 @@ const MyBookings = () => {
                 <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Tour Guide</th>
                 <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Tour Date</th>
                 <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Price</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Payment Status</th>
                 <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Status</th>
                 <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Actions</th>
               </tr>
@@ -117,14 +118,16 @@ const MyBookings = () => {
               ) : (
                 bookings.map((booking) => (
                   <tr key={booking._id}>
-                    <td>
-                      <img src={booking.touristImage} className='w-3/4 rounded-4xl p-1' alt={booking.touristName} />
+                    <td className=''>
+                      <img src={booking.touristImage} className='w-14 h-14 md:w-16 md:h-16 rounded-4xl p-1 hover:{``}' alt={booking.touristName} />
+                     
+                     
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm font-medium ">{booking.packageName}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm ">{booking.tourGuide}</div>
+                      <div className="text-sm ">{booking.tourGuide.name}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm ">
@@ -133,6 +136,12 @@ const MyBookings = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm ">Tk {booking.price}</div>
+                    </td>
+                    <td className='px-6 py-4 whitespace-nowrap'>
+                      {booking.payment_status === 'unpaid' && <div className='px-2 py-1 rounded-full text-xs bg-red-200 text-red-800 font-medium'>{booking.payment_status}</div>  }
+                      {booking.payment_status === 'paid' && <div className='px-2 py-1 rounded-full text-xs  bg-green-200 text-green-800 font-medium'>{booking.payment_status}</div>  }
+                      
+                     
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {statusBadge(booking.status)}

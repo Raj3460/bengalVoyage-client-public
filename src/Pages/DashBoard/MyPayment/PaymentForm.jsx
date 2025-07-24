@@ -99,6 +99,7 @@ const PaymentForm = () => {
           bookingId,
           email: user?.email,
           amount,
+          
           transactionId: transactionId,
           paymentMethod: result?.paymentIntent?.payment_method_types,
         };

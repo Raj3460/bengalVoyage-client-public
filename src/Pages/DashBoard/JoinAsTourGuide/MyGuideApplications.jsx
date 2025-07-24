@@ -15,6 +15,7 @@ import {
 import { format } from "date-fns";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const MyGuideApplications = () => {
   const axiosSecure = UseAxiosSecureApi();
@@ -241,7 +242,7 @@ const MyGuideApplications = () => {
                     You haven't applied to become a tour guide yet. Start your
                     journey by submitting an application.
                   </p>
-                  <button className="btn btn-primary mt-6">Apply Now</button>
+                <Link to='/dashboard/join_as_tour_guide'>  <button className="btn btn-primary mt-6">Apply Now</button></Link>
                 </div>
               )}
             </div>

@@ -62,7 +62,7 @@ const Login = () => {
   return (
     <div className="min-h-screen flex flex-col md:flex-row items-center justify-center  p-4">
       {/* Animation Section */}
-      <div className="hidden md:flex md:w-1/2 lg:w-2/3 items-center justify-center p-8">
+      <div className="hidden flex-1 md:flex md:w-1/2 lg:w-2/3 items-center justify-center p-8">
         <Lottie
           animationData={loginAnimation}
           loop={true}
@@ -71,7 +71,7 @@ const Login = () => {
       </div>
 
       {/* Form Section */}
-      <div className="w-full md:w-1/2 lg:w-1/3 bg-base-300 rounded-2xl shadow-xl overflow-hidden">
+      <div className="w-full flex-1 md:w-1/2 lg:w-1/3 bg-base-300 rounded-2xl shadow-xl overflow-hidden">
         <div className="p-8">
           <div className="flex justify-center md:hidden mb-6">
             <Lottie
@@ -81,10 +81,10 @@ const Login = () => {
             />
           </div>
 
-          <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">
+          <h1 className="text-3xl text-primary font-bold text-center  mb-2">
             Welcome Back!
           </h1>
-          <p className="text-center text-gray-600 mb-8">
+          <p className="text-center  mb-8">
             Sign in to access your account
           </p>
 
@@ -92,7 +92,7 @@ const Login = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium  mb-1"
               >
                 Email Address
               </label>
@@ -121,7 +121,7 @@ const Login = () => {
             <div className="relative">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium  mb-1"
               >
                 Password
               </label>
@@ -152,6 +152,7 @@ const Login = () => {
                   {errors.password.message}
                 </p>
               )}
+             
             </div>
 
             <div className="flex items-center justify-between">
@@ -164,7 +165,7 @@ const Login = () => {
                 />
                 <label
                   htmlFor="remember-me"
-                  className="ml-2 block text-sm text-gray-700"
+                  className="ml-2 block text-sm "
                 >
                   Remember me
                 </label>
@@ -172,7 +173,7 @@ const Login = () => {
 
               <div className="text-sm">
                 <Link
-                  to="/forgot-password"
+                  // to="/forgot-password"
                   className="font-medium text-blue-600 hover:text-blue-500"
                 >
                   Forgot password?
@@ -183,7 +184,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className={`w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors ${
+              className={`w-full flex justify-center text-black items-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm  bg-primary font-semibold hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors ${
                 isLoading ? "opacity-70 cursor-not-allowed" : ""
               }`}
             >
@@ -213,7 +214,7 @@ const Login = () => {
                 </>
               ) : (
                 <>
-                  <FaSignInAlt className="mr-2" />
+                  <FaSignInAlt className="mr-2 text-black" />
                   Login
                 </>
               )}
@@ -224,7 +225,7 @@ const Login = () => {
           <SocialLogin></SocialLogin>
 
           <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm ">
               Don't have an account?{" "}
               <Link
                 to="/register"

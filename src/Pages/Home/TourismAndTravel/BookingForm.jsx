@@ -8,18 +8,22 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
   const [startDate, setStartDate] = useState(new Date());
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
-  const [selectedGuideId, setSelectedGuideId] = useState("");
+  const [selectedGuide, setSelectedGuide] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!user || !selectedGuideId) return;
+    if (!user || !selectedGuide) return;
     
     const totalPrice = packageDetails.price * (adults + children * 0.5);
     
     onSubmit({
       price: totalPrice,
       tourDate: startDate,
-      tourGuide: selectedGuideId, // Storing the guide's ID
+      tourGuide: {
+        id: selectedGuide._id,
+        name: selectedGuide.name,
+        email: selectedGuide.email
+      },
       adults,
       children
     });
@@ -33,15 +37,12 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
     ? (packageDetails.oldPrice - packageDetails.price) * adults 
     : 0;
 
-  // Find the selected guide's details
-  // const selectedGuide = tourGuides.find(guide => guide._id === selectedGuideId);
-
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="bg-base-300 rounded-xl p-6 shadow-lg sticky top-6 border border-gray-200"
+      className=" rounded-xl bg-white p-6 shadow-lg sticky top-6 border border-gray-200"
     >
       <h2 className="text-2xl font-bold text-gray-900 mb-6">Book This Tour</h2>
       
@@ -99,7 +100,7 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
               selected={startDate}
               onChange={(date) => setStartDate(date)}
               minDate={new Date()}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg    text-black bg-gray-200"
             />
           </div>
 
@@ -113,7 +114,7 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
               min="1" 
               value={adults}
               onChange={(e) => setAdults(parseInt(e.target.value) || 1)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg    text-black bg-gray-200"
               required
             />
           </div>
@@ -127,8 +128,8 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
               type="number" 
               min="0" 
               value={children}
-              onChange={(e) => setChildren(parseInt(e.target.value) || 0)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+              onChange={(e) => setChildren(parseInt(e.target.value) || '')}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg    text-black bg-gray-200"
             />
           </div>
 
@@ -138,19 +139,33 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
               Select Tour Guide
             </label>
             <select
-              value={selectedGuideId}
-              onChange={(e) => setSelectedGuideId(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+              value={selectedGuide?._id || ""}
+              onChange={(e) => {
+                const guideId = e.target.value;
+                const guide = tourGuides.find(g => g._id === guideId);
+                setSelectedGuide(guide || null);
+              }}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg    text-black bg-gray-200"
               required
             >
               <option value="">-- Select Guide --</option>
               {tourGuides.map((guide) => (
                 <option key={guide._id} value={guide._id}>
-                  {guide.name} ({guide.specialization || 'Tour Guide'})
+                  {guide.name} ({guide.email}) - {guide.specialization || 'Tour Guide'}
                 </option>
               ))}
             </select>
-           
+            
+            {selectedGuide && (
+              <div className="mt-2 p-2 bg-gray-50 rounded-lg">
+                <p className="text-sm font-medium">Selected Guide:</p>
+                <p className="text-sm">{selectedGuide.name}</p>
+                <p className="text-xs text-gray-600">{selectedGuide.email}</p>
+                {selectedGuide.specialization && (
+                  <p className="text-xs text-gray-600">Specialization: {selectedGuide.specialization}</p>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Price Summary */}
@@ -180,7 +195,7 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
           <button 
             type="submit"
             className={`w-full ${colors.primary.bg} ${colors.primary.hover} text-white font-bold py-3 px-4 rounded-lg transition-all mt-4 shadow-md`}
-            disabled={!user || !selectedGuideId}
+            disabled={!user || !selectedGuide}
           >
             {user ? "Book Now" : "Login to Book"}
           </button>

@@ -17,6 +17,7 @@ import {
   FaBookOpen,
 } from "react-icons/fa";
 import { MdEmail, MdAdminPanelSettings } from "react-icons/md";
+// import AdminDashboardHome from "../AdminDashboardHome/AdminDashboardHome";
 
 const StatCard = ({ title, value, icon, color }) => (
   <div className={`p-5 rounded-xl shadow-md ${color.bg} ${color.text} transition-all duration-300 hover:shadow-lg hover:-translate-y-1`}>
@@ -56,6 +57,23 @@ const ManageProfile = () => {
       return res.data;
     },
   });
+console.log(adminStats);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   if (isLoading) return <LoadingSpinner size="small" />;
 
@@ -147,36 +165,37 @@ const ManageProfile = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 ">
             <StatCard
               title="Total Revenue"
-              value={`৳${adminStats.totalPayments?.toLocaleString() || 0}`}
+              value={`৳${adminStats?.data?.totalPayments?.toLocaleString() || 0}`}
               icon={<FaChartLine className="text-blue-500" />}
               color={{ bg: "bg-blue-100 dark:bg-blue-900/30", text: "text-blue-800 dark:text-blue-200" }}
             />
             <StatCard
               title="Tour Guides"
-              value={(adminStats.totalGuides || 0).toLocaleString()}
+              value={(adminStats?.data?.totalGuides || 0).toLocaleString()}
               icon={<FaUserTie  className="text-green-400"/>}
               color={{ bg: "bg-green-100 dark:bg-green-900/30", text: "text-green-800 dark:text-green-200" }}
             />
             <StatCard
               title="Packages"
-              value={(adminStats.totalPackages || 0).toLocaleString()}
+              value={(adminStats?.data?.totalPackages || 0).toLocaleString()}
               icon={<FaMapMarkedAlt />}
               color={{ bg: "bg-yellow-100 dark:bg-yellow-900/30", text: "text-yellow-800 dark:text-yellow-200" }}
             />
             <StatCard
               title="Tourists"
-              value={(adminStats.totalTourists || 0).toLocaleString()}
+              value={(adminStats?.data?.totalTourists || 0).toLocaleString()}
               icon={<FaUser />}
               color={{ bg: "bg-purple-100 dark:bg-purple-900/30", text: "text-purple-800 dark:text-purple-200" }}
             />
             <StatCard
               title="Travel Stories"
-              value={(adminStats.totalStories || 0).toLocaleString()}
+              value={(adminStats?.data?.totalStories || 0).toLocaleString()}
               icon={<FaBookOpen />}
               color={{ bg: "bg-pink-100 dark:bg-pink-900/30", text: "text-pink-800 dark:text-pink-200" }}
             />
           </div>
         </div>
+        // <AdminDashboardHome></AdminDashboardHome>
       )}
 
 

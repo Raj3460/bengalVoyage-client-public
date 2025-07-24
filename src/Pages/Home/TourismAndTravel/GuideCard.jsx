@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { motion } from "framer-motion";
 
 const GuideCard = ({ guide }) => {
@@ -64,7 +64,7 @@ const GuideCard = ({ guide }) => {
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Link
             to={`/guide-profile/${_id}`}
-            className="inline-block mt-4 text-sm  font-bold bg-gradient-to-r from-secondary to-primary-dark  px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all"
+            className="inline-block mt-4 text-sm  font-bold bg-gradient-to-r from-primary text-black to-primary-dark  px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all"
           >
             View Profile
           </Link>

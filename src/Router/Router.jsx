@@ -20,6 +20,10 @@ import UpdateStory from "../Pages/DashBoard/Story/UpdateStory";
 import ManageUsersByAdmin from "../Pages/DashBoard/ManageUserAdmin/ManageUsersByAdmin";
 import AssignedTours from "../Pages/DashBoard/AssignedTours.jsx/AssignedTours";
 import CommunityStroies from "../Pages/CommunityPage/CommunityStroies";
+import AllTrips from "../Pages/AllTripsPage/AllTrips";
+import AboutUs from "../Pages/Aboutme/AboutUs";
+import DashboardLayoutHomePage from "../Pages/DashBoard/DashboardLayout/DashboardLayoutHomePage";
+import AllTourGuides from "../Component/alltourGuidess/AllTourGuides";
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +47,18 @@ export const router = createBrowserRouter([
         Component: CommunityStroies,
       },
       {
+        path: "allTrips",
+        Component: AllTrips,
+      },
+      {
+        path: "tour-guides",
+        Component: AllTourGuides,
+      },
+      {
+        path: "aboutUs",
+        Component: AboutUs,
+      },
+      {
         path: "register",
         Component: Registation,
       },
@@ -61,6 +77,10 @@ export const router = createBrowserRouter([
       </PrivateRouts>
     ),
     children: [
+      {
+        index: true,
+        Component: DashboardLayoutHomePage,
+      },
       {
         path: "Manage_Profile",
         Component: ManageProfile,

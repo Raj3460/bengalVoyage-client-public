@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm, useFieldArray } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { useMutation } from "@tanstack/react-query";
 import useAxiosSecureApi from "../../../Hooks/Api/UseAxiosSecureApi";
 import Swal from "sweetalert2";

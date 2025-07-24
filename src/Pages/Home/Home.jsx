@@ -4,14 +4,20 @@ import Overview from "./Overview/Overview";
 import TouristStorySec from "./Tourist_Story/TouristStorySec";
 import Ourservice from "./OurService/Ourservice";
 import TourismAndTravel from "./TourismAndTravel/TourismAndTravel";
+import TouristStoriesSection from "./TouristStoriesSection/TouristStoriesSection";
+import ScrollToTop from "../../Component/ScrollToTop";
+import TravelTipsSection from "./TravelTipsSection";
 
 const Home = () => {
   return (
     <div className="text-5xl">
+      <ScrollToTop />
       <Banner></Banner>
       <Overview></Overview>
+
       <TourismAndTravel></TourismAndTravel>
-      <TouristStorySec></TouristStorySec>
+      <TravelTipsSection></TravelTipsSection>
+      <TouristStoriesSection></TouristStoriesSection>
       <Ourservice></Ourservice>
     </div>
   );

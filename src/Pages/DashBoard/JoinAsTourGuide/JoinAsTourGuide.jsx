@@ -177,7 +177,7 @@ const JoinAsTourGuide = () => {
         {/* Error Message */}
         {isError && (
           <div className="my-6 p-4 bg-red-100 text-red-600 font-semibold rounded-lg">
-            Error: {error.message || "Failed to submit application"}
+            Error: { "Failed to submit application you have already have a application"}
           </div>
         )}
       </div>

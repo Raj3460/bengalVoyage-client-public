@@ -25,17 +25,18 @@ import UseAxiosSecureApi from "../../Hooks/Api/UseAxiosSecureApi";
 
 import { toast } from "react-toastify";
 import useAuth from "../../Hooks/useAuth";
+import ScrollToTop from "../../Component/ScrollToTop";
 
 const CommunityStories = () => {
   const axiosSecure = UseAxiosSecureApi();
   const queryClient = useQueryClient();
   const { user } = useAuth();
-
+  
   const [selectedStory, setSelectedStory] = useState(null);
   const [commentText, setCommentText] = useState("");
   const [activeShareMenu, setActiveShareMenu] = useState(null);
   const [currentModalImageIndex, setCurrentModalImageIndex] = useState(0);
-
+  
   // Fetch all published stories
   const {
     data: stories = [],
@@ -53,7 +54,7 @@ const CommunityStories = () => {
       );
     },
   });
-
+  
   // Like/unlike mutation
   const { mutate: likeStory } = useMutation({
     mutationFn: async (storyId) => {
@@ -68,7 +69,7 @@ const CommunityStories = () => {
       toast.error("Failed to update like");
     },
   });
-
+  
   // Add comment mutation
   const { mutate: addComment, isLoading: isCommenting } = useMutation({
     mutationFn: async ({ storyId, text }) => {
@@ -84,14 +85,14 @@ const CommunityStories = () => {
       toast.error("Failed to add comment");
     },
   });
-
+  
   const handleCommentSubmit = (e) => {
     e.preventDefault();
     if (commentText.trim() && selectedStory?._id) {
       addComment({ storyId: selectedStory._id, text: commentText });
     }
   };
-
+  
   const toggleShareMenu = (storyId) => {
     setActiveShareMenu(activeShareMenu === storyId ? null : storyId);
   };
@@ -103,7 +104,7 @@ const CommunityStories = () => {
       (prev) => (prev + direction + totalImages) % totalImages
     );
   };
-
+  
   // Check if current user liked the story
   const checkIfLiked = (story) => {
     if (!user) return false;
@@ -112,7 +113,7 @@ const CommunityStories = () => {
       (id) => id === user.email || id === user._id || id === user.id
     );
   };
-
+  
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -126,7 +127,7 @@ const CommunityStories = () => {
       transition: { duration: 0.2 },
     },
   };
-
+  
   const modalVariants = {
     hidden: { opacity: 0, scale: 0.95 },
     visible: {
@@ -136,7 +137,7 @@ const CommunityStories = () => {
     },
     exit: { opacity: 0, scale: 0.95, transition: { duration: 0.2 } },
   };
-
+  
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen-75">
@@ -144,7 +145,7 @@ const CommunityStories = () => {
       </div>
     );
   }
-
+  
   if (error) {
     return (
       <div className="flex justify-center items-center h-64 text-red-600">
@@ -152,9 +153,10 @@ const CommunityStories = () => {
       </div>
     );
   }
-
+  
   return (
-    <div className="container mx-auto px-4 py-8 bg-gray-50 min-h-screen">
+    <div className="container mx-auto px-4 py-8 bg-base-300">
+      <ScrollToTop /> 
       <motion.h1
         className="text-4xl md:text-5xl font-extrabold text-center text-blue-700 mb-12 drop-shadow-lg"
         initial={{ opacity: 0, y: -30 }}

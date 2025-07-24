@@ -73,29 +73,29 @@ const Profile = ({ handleLogOut }) => {
                 onClick={() => setIsOpen(false)}
               >
                 <FaTachometerAlt className="mr-3 text-primary" />
-                <span className="text-gray-700 group-hover:text-primary">
+                <span className=" group-hover:text-primary">
                   Dashboard
                 </span>
               </Link>
 
               <Link
-                to="/offers"
+                to="/allTrips"
                 className="flex items-center px-3 py-2.5 text-sm font-medium rounded-md hover:bg-secondary/10 group transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 <FaBell className="mr-3 text-secondary" />
-                <span className="text-gray-700 group-hover:text-secondary">
-                  Offers
+                <span className=" group-hover:text-secondary">
+                  Packages
                 </span>
               </Link>
 
               <Link
-                to="/profile"
+                to="/dashboard/manage_profile"
                 className="flex items-center px-3 py-2.5 text-sm font-medium rounded-md hover:bg-accent/10 group transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 <FaUser className="mr-3 text-accent" />
-                <span className="text-gray-700 group-hover:text-accent">
+                <span className=" group-hover:text-accent">
                   My Profile
                 </span>
               </Link>
@@ -111,7 +111,7 @@ const Profile = ({ handleLogOut }) => {
                 className="flex items-center w-full px-3 py-2.5 text-sm font-medium rounded-md hover:bg-error/10 group transition-colors"
               >
                 <FaSignOutAlt className="mr-3 text-error" />
-                <span className="text-gray-700 group-hover:text-error">
+                <span className=" group-hover:text-red-500">
                   Sign Out
                 </span>
               </button>
