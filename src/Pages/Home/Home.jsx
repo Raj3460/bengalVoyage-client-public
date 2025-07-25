@@ -7,6 +7,7 @@ import TourismAndTravel from "./TourismAndTravel/TourismAndTravel";
 import TouristStoriesSection from "./TouristStoriesSection/TouristStoriesSection";
 import ScrollToTop from "../../Component/ScrollToTop";
 import TravelTipsSection from "./TravelTipsSection";
+import VideoOverview from "./Overview/VideoOverview";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <ScrollToTop />
       <Banner></Banner>
       <Overview></Overview>
+      <VideoOverview></VideoOverview>
 
       <TourismAndTravel></TourismAndTravel>
       <TravelTipsSection></TravelTipsSection>

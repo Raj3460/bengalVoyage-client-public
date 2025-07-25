@@ -10,11 +10,17 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
   const [children, setChildren] = useState(0);
   const [selectedGuide, setSelectedGuide] = useState(null);
 
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
+   
     if (!user || !selectedGuide) return;
+
     
     const totalPrice = packageDetails.price * (adults + children * 0.5);
+
+    
     
     onSubmit({
       price: totalPrice,
@@ -27,7 +33,15 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
       adults,
       children
     });
+
+    
+    
+    
+    
   };
+  
+  
+  
 
   // Calculate price breakdown
   const adultTotal = packageDetails.price * adults;
@@ -147,6 +161,7 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
               }}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg    text-black bg-gray-200"
               required
+              name="select"
             >
               <option value="">-- Select Guide --</option>
               {tourGuides.map((guide) => (
@@ -155,14 +170,15 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
                 </option>
               ))}
             </select>
+           
             
             {selectedGuide && (
-              <div className="mt-2 p-2 bg-gray-50 rounded-lg">
-                <p className="text-sm font-medium">Selected Guide:</p>
-                <p className="text-sm">{selectedGuide.name}</p>
+              <div className="mt-2 p-2 bg-yellow-500 rounded-lg">
+                <p className="text-sm font-medium text-black">Selected Guide:</p>
+                <p className="text-sm text-black">{selectedGuide.name}</p>
                 <p className="text-xs text-gray-600">{selectedGuide.email}</p>
                 {selectedGuide.specialization && (
-                  <p className="text-xs text-gray-600">Specialization: {selectedGuide.specialization}</p>
+                  <p className="text-xs text-black">Specialization: {selectedGuide.specialization}</p>
                 )}
               </div>
             )}
@@ -171,12 +187,12 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
           {/* Price Summary */}
           <div className="bg-gray-50 p-4 rounded-lg mt-4">
             <div className="flex justify-between font-medium text-gray-800 mb-1">
-              <span>Adults ({adults} × ${packageDetails.price})</span>
+              <span>Adults ({adults} × Tk{packageDetails.price})</span>
               <span>Tk{adultTotal.toFixed(2)}</span>
             </div>
             {children > 0 && (
               <div className="flex justify-between font-medium text-gray-800 mb-1">
-                <span>Children ({children} × ${(packageDetails.price * 0.5).toFixed(2)})</span>
+                <span>Children ({children} × Tk{(packageDetails.price * 0.5).toFixed(2)})</span>
                 <span>Tk{childrenTotal.toFixed(2)}</span>
               </div>
             )}
@@ -194,7 +210,7 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
 
           <button 
             type="submit"
-            className={`w-full ${colors.primary.bg} ${colors.primary.hover} text-white font-bold py-3 px-4 rounded-lg transition-all mt-4 shadow-md`}
+            className={`w-full bg-primary text-black hover:bg-accent font-bold py-3 px-4 rounded-lg transition-all mt-4 shadow-md`}
             disabled={!user || !selectedGuide}
           >
             {user ? "Book Now" : "Login to Book"}
