@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaMapMarkerAlt, FaPhone, FaEnvelope, FaTwitter
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8 px-4 md:px-8 lg:px-12">
+    <footer className=" bg-base-100 text-white pt-16 pb-8 px-4 md:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Brand Information */}
@@ -148,21 +148,21 @@ const Footer = () => {
         </div>
 
         {/* Copyright and Bottom Links */}
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
             © {new Date().getFullYear()} BengalVoyage. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <Link to="/privacy-policy" className="text-gray-400 hover:text-amber-400 text-sm transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="text-gray-400 hover:text-amber-400 text-sm transition-colors">
-              Terms of Service
-            </Link>
-            <Link to="/faq" className="text-gray-400 hover:text-amber-400 text-sm transition-colors">
-              FAQs
-            </Link>
-          </div>
+      
+     
+    
+    
+     
+     
+     
+     
+     
+      
+      
         </div>
       </div>
     </footer>

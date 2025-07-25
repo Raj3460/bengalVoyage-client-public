@@ -25,7 +25,7 @@ const DashboardLayoutHomePage = () => {
     if(isLoading) return <LoadingSpinner></LoadingSpinner>
   return (
     <div>
-      fewaifh
+     
       <TouristDashboardHome></TouristDashboardHome>
       {/* {user.role === "tour-guide" && <GuideDashboard />} */}
       {/* {user.role === "admin" && <AdminDashboard />} */}

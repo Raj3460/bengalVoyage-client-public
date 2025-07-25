@@ -86,9 +86,9 @@ const Overview = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="md:mt-16 mt-8 text-center"
         >
-          <button className="btn btn-primary btn-lg px-8 rounded-full text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300">
+          <button className="btn btn-primary btn-sm text-black sm:btn-lg sm:px-8 rounded-xl  font-semibold shadow-md hover:shadow-lg transition-all duration-300">
             Explore Our Tours
           </button>
         </motion.div>

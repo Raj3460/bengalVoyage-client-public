@@ -161,8 +161,8 @@ const TouristStoriesSection = () => {
         >
           Tourist Stories
         </motion.h2>
-        <Link to="/community" className="btn btn-primary">
-          View All Stories
+        <Link to="/community" className=" bg-primary btn btn-primary btn-sm text-black sm:btn-lg sm:px-8">
+           All Stories
         </Link>
       </div>
 
@@ -291,7 +291,7 @@ const TouristStoriesSection = () => {
 
                   {/* No images fallback */}
                   {!story.images?.length && (
-                    <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
+                    <div className="w-full text-xl h-full flex items-center justify-center bg-gray-200 text-gray-500">
                       No Image
                     </div>
                   )}
@@ -624,7 +624,7 @@ const TouristStoriesSection = () => {
                         </div>
                       ))
                     ) : (
-                      <p className="text-gray-500 text-center py-4">
+                      <p className="text-gray-500 text-2xl text-center py-4">
                         No comments yet. Be the first to comment!
                       </p>
                     )}
