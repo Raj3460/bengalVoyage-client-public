@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <img 
-                src="/logo.png" 
+                src="/logo2.png" 
                 alt="BengalVoyage Logo" 
                 className="h-12 w-auto"
                 loading="lazy"

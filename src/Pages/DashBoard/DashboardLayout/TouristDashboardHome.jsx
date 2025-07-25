@@ -66,7 +66,7 @@ const TouristDashboardHome = () => {
       {/* Stat Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
         <StatCard
-          title="Total Revenue"
+          title="Total Users"
           value={`${stats?.totalUsers?.toLocaleString() || 0}`}
           icon={<FaChartLine />}
           bgColor="bg-blue-100"

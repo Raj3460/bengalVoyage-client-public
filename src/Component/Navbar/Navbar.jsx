@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 import Profile from "./Profile";
 import Logo from "../Logo/Logo";
+import "./Navbar.css"
 
 
 
@@ -70,7 +71,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-300 shadow-sm sticky top-0 z-50">
+    <div className="navbar bg-base-300 shadow-sm sticky top-0 z-50 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

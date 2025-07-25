@@ -62,7 +62,7 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
           <h3 className="font-semibold text-gray-800 mb-2">{packageDetails.title}</h3>
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Price per adult</span>
-            <span className="font-bold text-blue-600">${packageDetails.price}</span>
+            <span className="font-bold text-blue-600">TK {packageDetails.price}</span>
           </div>
           {packageDetails.oldPrice && (
             <div className="flex justify-between items-center text-gray-500 mt-1">
@@ -113,7 +113,7 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
               type="number" 
               min="1" 
               value={adults}
-              onChange={(e) => setAdults(parseInt(e.target.value) || 1)}
+              onChange={(e) => setAdults(parseInt(e.target.value) || '')}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg    text-black bg-gray-200"
               required
             />
@@ -172,23 +172,23 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
           <div className="bg-gray-50 p-4 rounded-lg mt-4">
             <div className="flex justify-between font-medium text-gray-800 mb-1">
               <span>Adults ({adults} × ${packageDetails.price})</span>
-              <span>${adultTotal.toFixed(2)}</span>
+              <span>Tk{adultTotal.toFixed(2)}</span>
             </div>
             {children > 0 && (
               <div className="flex justify-between font-medium text-gray-800 mb-1">
                 <span>Children ({children} × ${(packageDetails.price * 0.5).toFixed(2)})</span>
-                <span>${childrenTotal.toFixed(2)}</span>
+                <span>Tk{childrenTotal.toFixed(2)}</span>
               </div>
             )}
             {discount > 0 && (
               <div className="flex justify-between text-green-600 text-sm mt-1">
                 <span>You save</span>
-                <span>${discount.toFixed(2)}</span>
+                <span>TK{discount.toFixed(2)}</span>
               </div>
             )}
             <div className="flex justify-between font-bold text-lg text-gray-900 mt-3 pt-3 border-t border-gray-200">
               <span>Total</span>
-              <span>${totalPrice.toFixed(2)}</span>
+              <span>Tk{totalPrice.toFixed(2)}</span>
             </div>
           </div>
 

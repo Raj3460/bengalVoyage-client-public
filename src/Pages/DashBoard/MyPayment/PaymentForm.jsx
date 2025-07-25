@@ -131,24 +131,27 @@ console.log("res from intent " , res);
 
   };
   return (
-    <div>
-      <form
-        onSubmit={handleSubmit}
-        className=" rounded-xl w-full bg-gray-100  space-y-4  shadow-md p-4 max-w-md mx-auto"
-      >
-        <CardElement className="mb-4 p-2 border rounded" />
-        <button
-          className=" btn btn-primary text-black rounded w-full"
-          type="Submit"
-          disabled={!stripe}
-        >
-          Pay Tk: {' '}
-          {amount}
-        </button>
+   <div className="min-h-screen flex items-center justify-center  px-4">
+  <form
+    onSubmit={handleSubmit}
+    className="rounded-xl w-full max-w-md bg-white space-y-4 shadow-lg p-6"
+  >
+    <h2 className="text-xl font-semibold text-center text-gray-700">Payment</h2>
 
-        {error && <p className="text-red-500">{error}</p>}
-      </form>
-    </div>
+    <CardElement className="p-3 border border-gray-300 rounded-md bg-gray-100" />
+
+    <button
+      className="btn btn-primary text-white bg-blue-600 hover:bg-blue-700 rounded-md w-full py-2"
+      type="submit"
+      disabled={!stripe}
+    >
+      Pay Tk: {amount}
+    </button>
+
+    {error && <p className="text-red-500 text-center">{error}</p>}
+  </form>
+</div>
+
   );
 };
 
