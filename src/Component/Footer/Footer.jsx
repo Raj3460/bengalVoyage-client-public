@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaMapMarkerAlt, FaPhone, FaEnvelope, FaTwitter
 
 const Footer = () => {
   return (
-    <footer className=" bg-base-100 text-white pt-16 pb-8 px-4 md:px-8 lg:px-12">
+    <footer className=" bg-base-100  pt-16 pb-8 px-4 md:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Brand Information */}
@@ -20,7 +20,7 @@ const Footer = () => {
                 BengalVoyage
               </span>
             </div>
-            <p className="text-gray-300 leading-relaxed">
+            <p className=" leading-relaxed">
               Discover the hidden gems of Bangladesh with our expert guides and curated travel experiences. 
               We make your journey unforgettable.
             </p>
@@ -29,7 +29,7 @@ const Footer = () => {
                 href="https://www.facebook.com/share/18vEWwDCHi/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-blue-500 transition-colors text-xl"
+                className=" hover:text-blue-500 transition-colors text-xl"
                 aria-label="Facebook"
               >
                 <FaFacebook />
@@ -38,7 +38,7 @@ const Footer = () => {
                 href="https://www.instagram.com/sarkarshovo868?utm_source=qr&igsh=MXNkMmEzZ2wxZW9lOQ==" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-pink-500 transition-colors text-xl"
+                className=" hover:text-pink-500 transition-colors text-xl"
                 aria-label="Instagram"
               >
                 <FaInstagram />
@@ -47,7 +47,7 @@ const Footer = () => {
                 href="https://x.com/sarkar_raj3460" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-sky-400 transition-colors text-xl"
+                className=" hover:text-sky-400 transition-colors text-xl"
                 aria-label="Twitter"
               >
                 <FaTwitter />
@@ -56,7 +56,7 @@ const Footer = () => {
                 href="https://youtube.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-red-500 transition-colors text-xl"
+                className=" hover:text-red-500 transition-colors text-xl"
                 aria-label="YouTube"
               >
                 <FaYoutube />
@@ -73,7 +73,7 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/" 
-                  className="text-gray-300 hover:text-amber-400 transition-colors flex items-center gap-2"
+                  className=" hover:text-amber-400 transition-colors flex items-center gap-2"
                 >
                   <span className="w-2 h-2 bg-amber-400 rounded-full"></span>
                   Home
@@ -82,7 +82,7 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/allTrips" 
-                  className="text-gray-300 hover:text-amber-400 transition-colors flex items-center gap-2"
+                  className=" hover:text-amber-400 transition-colors flex items-center gap-2"
                 >
                   <span className="w-2 h-2 bg-amber-400 rounded-full"></span>
                   Tour Packages
@@ -91,7 +91,7 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/tour-guides" 
-                  className="text-gray-300 hover:text-amber-400 transition-colors flex items-center gap-2"
+                  className=" hover:text-amber-400 transition-colors flex items-center gap-2"
                 >
                   <span className="w-2 h-2 bg-amber-400 rounded-full"></span>
                   Tour Guides
@@ -100,7 +100,7 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/community" 
-                  className="text-gray-300 hover:text-amber-400 transition-colors flex items-center gap-2"
+                  className=" hover:text-amber-400 transition-colors flex items-center gap-2"
                 >
                   <span className="w-2 h-2 bg-amber-400 rounded-full"></span>
                   Travel Stories
@@ -109,7 +109,7 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/aboutUs" 
-                  className="text-gray-300 hover:text-amber-400 transition-colors flex items-center gap-2"
+                  className=" hover:text-amber-400 transition-colors flex items-center gap-2"
                 >
                   <span className="w-2 h-2 bg-amber-400 rounded-full"></span>
                   About Us
@@ -123,7 +123,7 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-6 pb-2 border-b border-amber-500 inline-block">
               Contact Us
             </h3>
-            <address className="not-italic space-y-4 text-gray-300">
+            <address className="not-italic space-y-4 ">
               <div className="flex items-start gap-3">
                 <FaMapMarkerAlt className="text-amber-400 mt-1 flex-shrink-0" />
                 <p>123 Travel Street, Dhanmondi, Dhaka 1209, Bangladesh</p>
