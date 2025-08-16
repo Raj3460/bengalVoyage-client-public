@@ -85,12 +85,12 @@ const PackageCard = ({ pkg }) => {
           {/* VIEW MORE button with angled edge */}
           <Link 
             to={`/packages/${_id}`}
-            className="relative overflow-hidden bg-primary hover:bg-blue-600 text-black hover:text-white font-bold uppercase text-sm px-6 py-3 transition-colors duration-300"
+            className="relative overflow-hidden bg-primary hover:bg- text-black hover:text-white font-bold uppercase text-sm px-6 py-3 transition-colors duration-300"
             style={{
               clipPath: "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)"
             }}
           >
-            <span className="flex items-center gap-1">
+            <span className="flex items-center gap-1 text-base-300 ">
               VIEW MORE <FiArrowRight className="h-4 w-4" />
             </span>
           </Link>

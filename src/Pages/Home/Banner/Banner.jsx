@@ -10,8 +10,8 @@ const slides = [
     subtitle: "Join our guided mangrove adventures today!",
     img: '/img1t.jpg',
     cta: "Explore Now",
-    link: "community", // লিঙ্ক পাথ যোগ করুন
-    target: "_self" // লিঙ্ক টার্গেট (নতুন ট্যাবে খুলতে চাইলে "_blank" ব্যবহার করুন)
+    link: "community", 
+    target: "_self" 
   },
   {
     id: 2,
@@ -54,18 +54,18 @@ const Banner = () => {
             {/* Overlay with gradient for better text visibility */}
             <div className="absolute inset-0  w-full h-full flex items-center justify-start px-6 sm:px-12 lg:px-24">
               <Fade direction="left" cascade damping={0.2} triggerOnce>
-              <div className="max-w-xl text-secondary space-y-4">
-                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              <div className="max-w-xl text-amber-600 space-y-4">
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl  font-bold leading-tight">
                     {slide.title}
                   </h1>
-                  <p className="text-lg md:text-xl font-bold text-secondary">{slide.subtitle}</p>
+                  <p className="text-lg md:text-xl font-bold text-sky-500">{slide.subtitle}</p>
                   
                   {/* CTA বাটনে লিঙ্ক যোগ করুন */}
                   <button>
                     <Link 
                     to={slide.link} 
                     target={slide.target}
-                    className="btn btn-primary mt-6 group flex items-center gap-2 hover:gap-3 transition-all duration-300"
+                    className="btn btn-primary text-base-300 mt-6 group flex items-center gap-2 hover:gap-3 transition-all duration-300"
                   >
                     {slide.cta} 
                     <FaArrowRight className="group-hover:translate-x-1 transition-transform" />

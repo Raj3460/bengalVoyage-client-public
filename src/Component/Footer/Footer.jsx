@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaMapMarkerAlt, FaPhone, FaEnvelope, FaTwitter
 
 const Footer = () => {
   return (
-    <footer className=" bg-base-100  pt-16 pb-8 px-4 md:px-8 lg:px-12">
+    <footer className=" bg-base-300  pt-16 pb-8 px-4 md:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Brand Information */}

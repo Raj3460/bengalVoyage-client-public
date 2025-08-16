@@ -24,6 +24,7 @@ import AllTrips from "../Pages/AllTripsPage/AllTrips";
 import AboutUs from "../Pages/Aboutme/AboutUs";
 import DashboardLayoutHomePage from "../Pages/DashBoard/DashboardLayout/DashboardLayoutHomePage";
 import AllTourGuides from "../Component/alltourGuidess/AllTourGuides";
+import ErrorPage from "../Component/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -130,5 +131,10 @@ export const router = createBrowserRouter([
         Component: ManageUsersByAdmin,
       },
     ],
+    
   },
+   {
+        path:"/*",
+        element: <ErrorPage></ErrorPage>
+      },
 ]);

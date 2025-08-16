@@ -28,7 +28,7 @@ const GuideCard = ({ guide }) => {
 
   return (
     <motion.div
-      className="text-center bg-gray-100 p-6  rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:border-primary/20 transition-colors"
+      className="text-center p-6  rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:border-primary/20 transition-colors"
       initial="hidden"
       animate="visible"
       whileHover="hover"
@@ -64,7 +64,7 @@ const GuideCard = ({ guide }) => {
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Link
             to={`/guide-profile/${_id}`}
-            className="inline-block mt-4 text-sm  font-bold bg-gradient-to-r from-primary text-black to-primary-dark  px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all"
+            className="inline-block mt-4 text-sm px-6 py-2 rounded-full text-info  font-bold bg-gradient-to-r from-primary  to-primary-dark   shadow-md hover:shadow-lg transition-all"
           >
             View Profile
           </Link>

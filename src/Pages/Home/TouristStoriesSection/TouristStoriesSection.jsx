@@ -161,7 +161,7 @@ const TouristStoriesSection = () => {
         >
           Tourist Stories
         </motion.h2>
-        <Link to="/community" className=" bg-primary btn btn-primary btn-sm text-black sm:btn-lg sm:px-8">
+        <Link to="/community" className=" bg-primary btn btn-primary btn-sm text-base-300 sm:btn-lg sm:px-8">
            All Stories
         </Link>
       </div>

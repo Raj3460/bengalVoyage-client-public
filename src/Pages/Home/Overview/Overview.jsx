@@ -38,7 +38,7 @@ const Overview = () => {
           className="text-center mb-16"
         >
           <h2 className="text-2xl md:text-4xl font-bold  mb-4">
-            Why Choose <span className="text-primary">BengalVoyage</span>?
+            Why Choose <span className="text-accent">BengalVoyage</span>?
           </h2>
           <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             We go beyond tourism to deliver authentic Bangladeshi experiences
@@ -60,18 +60,18 @@ const Overview = () => {
               }}
               className="group"
             >
-              <div className="h-full bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 group-hover:shadow-xl">
+              <div className="h-full bg-primary/10 rounded-xl shadow-lg overflow-hidden transition-all duration-300 group-hover:shadow-xl">
                 <div className="p-8 flex flex-col items-center text-center h-full">
                   <motion.div 
                     whileHover={{ scale: 1.1 }}
-                    className="mb-6 rounded-full bg-primary/10 text-primary p-5 transition-all duration-300 group-hover:bg-primary/20"
+                    className="mb-6 rounded-full bg-accent/50 text-primary p-5 transition-all duration-300 group-hover:bg-primary/20"
                   >
                     {feature.icon}
                   </motion.div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-xl text-info font-bold  mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600  text-sm leading-relaxed">
+                  <p className="  text-sm leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -88,7 +88,7 @@ const Overview = () => {
           viewport={{ once: true }}
           className="md:mt-16 mt-8 text-center"
         >
-          <button className="btn btn-primary btn-sm text-black sm:btn-lg sm:px-8 rounded-xl  font-semibold shadow-md hover:shadow-lg transition-all duration-300">
+          <button className="btn btn-primary btn-sm text-base-300 sm:btn-lg sm:px-8 rounded-xl  font-semibold shadow-md hover:shadow-lg transition-all duration-300">
             Explore Our Tours
           </button>
         </motion.div>

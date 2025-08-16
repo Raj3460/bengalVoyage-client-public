@@ -85,7 +85,7 @@ const TravelTipsSection = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold  mb-3">
-            Traveler's <span className="text-primary">Essential Tips</span>
+            Traveler's <span className="text-accent">Essential Tips</span>
           </h2>
           <p className="text-lg  max-w-2xl mx-auto">
             Smart advice to make your journey smoother and more enjoyable

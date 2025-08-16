@@ -7,11 +7,22 @@
  }
 
  @plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #0d7774;
+  --color-secondary:#ee689d;
+  --color-accent: #dc7418;
+  --color-info: #041f20;
+  --color-base-300: #edfdfd;
+}
+ @plugin "daisyui/theme" {
   name: "dark";
   default: true;
-  --color-primary: #facf0c;
-  --color-secondary:#02d9fa;
-  --color-Accent: #cdcaf7;
+  --color-primary: #88f2ee;
+  --color-secondary: #971147;
+  --color-accent: #e77e23;
+  --color-info: #dffafb;
+  --color-background: #021212;
 }
 
 .font_urbanist {

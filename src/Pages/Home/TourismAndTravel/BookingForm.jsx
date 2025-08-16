@@ -129,7 +129,7 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
               value={adults}
               onChange={(e) => setAdults(parseInt(e.target.value) || '')}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg    text-black bg-gray-200"
-              required
+              required 
             />
           </div>
 
@@ -160,7 +160,7 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
                 setSelectedGuide(guide || null);
               }}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg    text-black bg-gray-200"
-              required
+              required 
               name="select"
             >
               <option value="">-- Select Guide --</option>
@@ -210,8 +210,9 @@ const BookingForm = ({ packageDetails, tourGuides, user, onSubmit, colors }) => 
 
           <button 
             type="submit"
-            className={`w-full bg-primary text-black hover:bg-accent font-bold py-3 px-4 rounded-lg transition-all mt-4 shadow-md`}
-            disabled={!user || !selectedGuide}
+            disabled={!user }
+            className={selectedGuide ? `w-full bg-primary text-black hover:bg-accent font-bold py-3 px-4 rounded-lg transition-all mt-4 shadow-md cursor-pointer` : `w-full bg-red-500 text-black  font-bold py-3 px-4 rounded-lg transition-all mt-4 shadow-md cursor-no-drop `}
+            
           >
             {user ? "Book Now" : "Login to Book"}
           </button>

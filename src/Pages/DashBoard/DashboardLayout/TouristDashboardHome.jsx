@@ -46,7 +46,7 @@ const TouristDashboardHome = () => {
   ];
 
   const chartData = [
-    { name: 'Revenue', value: stats?.totalUsers || 0 },
+    { name: 'users', value: stats?.totalUsers || 0 },
     { name: 'Tourists', value: stats?.totalTourists || 0 },
     { name: 'Packages', value: stats?.totalPackages || 0 },
     { name: 'Stories', value: stats?.totalStories || 0 },
@@ -144,7 +144,7 @@ const TouristDashboardHome = () => {
       </div>
 
       {/* Area Chart */}
-      <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow">
+      {/* <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow">
         <h3 className="text-lg font-semibold mb-4 text-center">Engagement Overview</h3>
         <ResponsiveContainer width="100%" height={300}>
           <AreaChart data={chartData}>
@@ -161,7 +161,7 @@ const TouristDashboardHome = () => {
             <Area type="monotone" dataKey="value" stroke="#82ca9d" fillOpacity={1} fill="url(#colorValue)" />
           </AreaChart>
         </ResponsiveContainer>
-      </div>
+      </div> */}
     </div>
   );
 };
