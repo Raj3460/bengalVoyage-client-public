@@ -4,6 +4,8 @@ import UseAxiosSecureApi from "../../../Hooks/Api/UseAxiosSecureApi";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../../../Component/Sheard/LoadingSpinner";
 import TouristDashboardHome from "./TouristDashboardHome";
+import GuideDashboardHome from "./GuideDashboardHome";
+import AdminDashboardHome from "./AdminDashboardHome";
 
 const DashboardLayoutHomePage = () => {
   const axiosSecure = UseAxiosSecureApi();
@@ -26,9 +28,11 @@ const DashboardLayoutHomePage = () => {
   return (
     <div>
      
-      <TouristDashboardHome></TouristDashboardHome>
-      {/* {user.role === "tour-guide" && <GuideDashboard />} */}
-      {/* {user.role === "admin" && <AdminDashboard />} */}
+      
+      {role === "tourist" &&  <TouristDashboardHome></TouristDashboardHome>}
+      {role === "tour-guide"  &&  <TouristDashboardHome></TouristDashboardHome>}
+      {/* {role === "tour-guide" && <GuideDashboardHome />} */}
+      {role === "admin" && <AdminDashboardHome />}
     </div>
   );
 };

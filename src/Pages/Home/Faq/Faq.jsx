@@ -38,10 +38,10 @@ const Faq = () => {
           {/* Left Side - About Section */}
           <div className="lg:w-1/2 p-6 flex flex-col justify-center">
             <h2 className="text-3xl font-bold text-secondary mb-4">Need Help?</h2>
-            <p className=" mb-4 text-2xl">
+            <p className=" mb-4 text-sm">
               We've compiled a list of frequently asked questions to help you navigate our Tourism Management System. If you can't find what you're looking for, feel free to contact our support team.
             </p>
-            <p className=" text-2xl">
+            <p className=" text-sm">
               Our platform is designed to make your travel planning experience seamless, whether you're looking for tour packages, local guides, or sharing your travel stories.
             </p>
           </div>
@@ -62,7 +62,7 @@ const Faq = () => {
                     }`}
                     onClick={() => toggleAccordion(index)}
                   >
-                    <span className="font-medium text-xl">{faq.question}</span>
+                    <span className="font-medium text-sm">{faq.question}</span>
                     <ChevronDownIcon 
                       className={`w-5 h-5 text-secondary transition-transform ${
                         expandedIndex === index ? 'transform rotate-180' : ''
@@ -74,7 +74,7 @@ const Faq = () => {
                       expandedIndex === index ? 'block' : 'hidden'
                     }`}
                   >
-                    <p className="text-gray-600 text-xl">{faq.answer}</p>
+                    <p className="text-gray-600 text-sm">{faq.answer}</p>
                   </div>
                 </div>
               ))}

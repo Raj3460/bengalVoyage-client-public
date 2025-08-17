@@ -69,6 +69,11 @@ const GuideCard = ({ guide }) => {
             View Profile
           </Link>
         </motion.div>
+
+
+        {/*  */}
+        
+        {/*  */}
       </div>
     </motion.div>
   );

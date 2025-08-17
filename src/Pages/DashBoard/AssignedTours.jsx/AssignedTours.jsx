@@ -122,24 +122,24 @@ const AssignedTours = () => {
               <tr key={tour._id} className="hover:bg-accent/25 dark:hover:bg-primary/5">
                 <td className="whitespace-nowrap ">{tour.packageName}</td>
                 <td className="whitespace-nowrap">
-                  <div className="dark:text-white">{tour.touristName}</div>
-                  <div className="text-gray-500 dark:text-gray-400 text-xs">{tour.touristEmail}</div>
+                  <div className="text-info">{tour.touristName}</div>
+                  <div className=" text-info text-xs">{tour.touristEmail}</div>
                 </td>
-                <td className="whitespace-nowrap dark:text-white text-xs">
+                <td className="whitespace-nowrap text-info text-xs">
                   {new Date(tour.tourDate).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'short',
                     day: 'numeric'
                   })}
                 </td>
-                <td className="whitespace-nowrap dark:text-white">Tk: {tour.price.toFixed(2)}</td>
+                <td className="whitespace-nowrap ">Tk: {tour.price.toFixed(2)}</td>
                 <td className="whitespace-nowrap">
                   <span className={`badge ${
                     tour.status === 'pending' ? 'badge-warning' :
                     tour.status === 'in-review' ? 'badge-info' :
                     tour.status === 'accepted' ? 'badge-success' : 'badge-error'
                   }`}>
-                    {tour.status}
+                   <p className='text-secondary'> {tour.status}</p>
                   </span>
                 </td>
                 <td className="whitespace-nowrap">
@@ -147,7 +147,7 @@ const AssignedTours = () => {
                     <button
                       onClick={() => acceptTour(tour._id)}
                       disabled={tour.status !== 'in-review' || isAccepting}
-                      className={`btn btn-xs ${
+                      className={`btn btn-xs  ${
                         tour.status === 'in-review' ? 'btn-success' : 'btn-disabled'
                       }`}
                     >
