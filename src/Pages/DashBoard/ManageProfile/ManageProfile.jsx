@@ -92,7 +92,7 @@ console.log(adminStats);
   return (
     <div className=" px-4 py-8">
       {/* Profile Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-2xl shadow-lg">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6 bg-base-300 p-6 rounded-2xl shadow-lg">
         <div className="flex items-start gap-5">
           <div className="relative">
             <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg">
@@ -107,14 +107,14 @@ console.log(adminStats);
             </div>
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+            <h1 className="text-2xl font-bold ">
               {currentUser?.name || "User"}
             </h1>
-            <div className="mt-2 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white dark:bg-gray-700 shadow-sm">
+            <div className="mt-2 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-white bg-white dark:bg-gray-700 shadow-sm">
               {roleIcon[currentUser?.role]}
               <span className="ml-2">{roleLabel[currentUser?.role]}</span>
             </div>
-            <p className="mt-3 text-sm text-gray-600 dark:text-gray-300 flex items-center">
+            <p className="mt-3 text-sm  flex items-center">
               <MdEmail className="mr-2 text-indigo-500 dark:text-indigo-400" />
               {currentUser?.email}
             </p>
@@ -123,7 +123,7 @@ console.log(adminStats);
 
         <button
           onClick={() => setIsOpen(true)}
-          className="flex items-center px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white rounded-lg transition-all shadow-md hover:shadow-lg"
+          className="flex items-center px-5 py-2.5 bg-gradient-to-r from-primary to-accent hover:from-secondary hover:to-purple-700 text-white rounded-lg transition-all shadow-md hover:shadow-lg"
         >
           <FaEdit className="mr-2" />
           Edit Profile
@@ -167,31 +167,31 @@ console.log(adminStats);
               title="Total Revenue"
               value={`৳${adminStats?.data?.totalPayments?.toLocaleString() || 0}`}
               icon={<FaChartLine className="text-blue-500" />}
-              color={{ bg: "bg-blue-100 dark:bg-blue-900/30", text: "text-blue-800 dark:text-blue-200" }}
+              color={{ bg: "bg-blue-100 dark:bg-blue-900", text: "text-blue-800 dark:text-blue-200" }}
             />
             <StatCard
               title="Tour Guides"
               value={(adminStats?.data?.totalGuides || 0).toLocaleString()}
               icon={<FaUserTie  className="text-yellow-400"/>}
-              color={{ bg: "bg-yellow-100 dark:bg-yellow-900/30", text: "text-yellow-800 dark:text-yellow-200" }}
+              color={{ bg: "bg-yellow-100 dark:bg-yellow-900", text: "text-yellow-800 dark:text-yellow-200" }}
             />
             <StatCard
               title="Packages"
               value={(adminStats?.data?.totalPackages || 0).toLocaleString()}
               icon={<FaMapMarkedAlt />}
-              color={{ bg: "bg-yellow-100 dark:bg-yellow-900/30", text: "text-yellow-800 dark:text-yellow-200" }}
+              color={{ bg: "bg-yellow-100 dark:bg-yellow-900", text: "text-yellow-800 dark:text-yellow-200" }}
             />
             <StatCard
               title="Tourists"
               value={(adminStats?.data?.totalTourists || 0).toLocaleString()}
               icon={<FaUser />}
-              color={{ bg: "bg-purple-100 dark:bg-purple-900/30", text: "text-purple-800 dark:text-purple-200" }}
+              color={{ bg: "bg-purple-100 dark:bg-purple-900", text: "text-purple-800 dark:text-purple-200" }}
             />
             <StatCard
               title="Travel Stories"
               value={(adminStats?.data?.totalStories || 0).toLocaleString()}
               icon={<FaBookOpen />}
-              color={{ bg: "bg-pink-100 dark:bg-pink-900/30", text: "text-pink-800 dark:text-pink-200" }}
+              color={{ bg: "bg-pink-100 dark:bg-pink-900", text: "text-pink-800 dark:text-pink-200" }}
             />
           </div>
         </div>
@@ -207,7 +207,7 @@ console.log(adminStats);
           Account Information
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+          <div className="bg-gray-50 dark:bg-secondary/30 p-4 rounded-lg">
             <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">
               BASIC INFORMATION
             </h4>
@@ -234,7 +234,7 @@ console.log(adminStats);
             </div>
           </div>
 
-          <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+          <div className="bg-gray-50 dark:bg-accent/30 p-4 rounded-lg">
             <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">
               ACCOUNT DETAILS
             </h4>
