@@ -67,8 +67,8 @@ const TravelGuideTabs = () => {
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold mb-4 text-center">
-        Tourism &amp; Travel Guide
+      <h2 className=" mb-4 text-2xl md:text-4xl font-bold text-center">
+        Tourism & Travel Guide
       </h2>
 
       <Tabs>
