@@ -8,10 +8,11 @@ import TouristStoriesSection from "./TouristStoriesSection/TouristStoriesSection
 import ScrollToTop from "../../Component/ScrollToTop";
 import TravelTipsSection from "./TravelTipsSection";
 import VideoOverview from "./Overview/VideoOverview";
+import Faq from "./Faq/Faq";
 
 const Home = () => {
   return (
-    <div className="text-5xl">
+    <div className="text-5xl max-w-7xl mx-auto">
       
       <ScrollToTop />
       <Banner></Banner>
@@ -21,6 +22,7 @@ const Home = () => {
       <TourismAndTravel></TourismAndTravel>
       <TravelTipsSection></TravelTipsSection>
       <TouristStoriesSection></TouristStoriesSection>
+      <Faq></Faq>
       <Ourservice></Ourservice>
     </div>
   );

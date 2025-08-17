@@ -15,7 +15,7 @@ createRoot(document.getElementById("root")).render(
           {/* <div className="absolute -right-10 -top-10 w-32 h-32 bg-yellow-200 dark:bg-yellow-800 rounded-full opacity-20"></div> */}
           {/* <div className="absolute -right-5 -bottom-5 w-20 h-20 bg-yellow-300 dark:bg-yellow-700 rounded-full opacity-20"></div> */}
           
-  <div className="font_urbanist max-w-7xl mx-auto bg-base-300">
+  <div className="font_urbanist  bg-base-300">
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <RouterProvider router={router} />

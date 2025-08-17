@@ -54,7 +54,7 @@ const Banner = () => {
             {/* Overlay with gradient for better text visibility */}
             <div className="absolute inset-0  w-full h-full flex items-center justify-start px-6 sm:px-12 lg:px-24">
               <Fade direction="left" cascade damping={0.2} triggerOnce>
-              <div className="max-w-xl text-amber-600 space-y-4">
+              <div className="max-w-xl text-sky-400 space-y-4">
                   <h1 className="text-3xl md:text-4xl lg:text-5xl  font-bold leading-tight">
                     {slide.title}
                   </h1>

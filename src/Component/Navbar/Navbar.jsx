@@ -71,8 +71,9 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-300 shadow-sm sticky top-0 z-50 ">
-      <div className="navbar-start">
+    <div className="bg-base-300  shadow-2xl sticky top-0 z-50">
+      <div className=" navbar max-w-7xl mx-auto  ">
+      <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -135,6 +136,7 @@ const Navbar = () => {
       </div>
 
       
+    </div>
     </div>
   );
 };
