@@ -44,7 +44,7 @@ const PackageCard = ({ pkg }) => {
       </div>
 
       {/* Card content */}
-      <div className="p-5">
+      <div className="p-2 px-2.5">
         {/* Price section */}
         <div className="mb-2">
           {hasDiscount ? (
@@ -68,10 +68,10 @@ const PackageCard = ({ pkg }) => {
         </p>
 
         {/* Description */}
-        <p className="mb-1 line-clamp-2 text-sm text-gray-600">{about}</p>
+        <p className="mb-1 line-clamp-1 text-sm text-gray-600 font-semibold">{about}</p>
 
         {/* Rating and CTA section */}
-        <div className="flex items-center justify-between border-t border-gray-200 pt-4">
+        <div className="flex items-center justify-between border-t border-gray-200 pt-2">
           {/* Rating stars with angled background */}
           <div className="relative flex items-center">
             <div className="flex text-yellow-500">
@@ -85,7 +85,7 @@ const PackageCard = ({ pkg }) => {
           {/* VIEW MORE button with angled edge */}
           <Link 
             to={`/packages/${_id}`}
-            className="relative overflow-hidden bg-primary hover:bg- text-black hover:text-white font-bold uppercase text-sm px-6 py-3 transition-colors duration-300"
+            className="relative overflow-hidden bg-primary hover:bg- text-black hover:text-white font-bold uppercase text-sm px-6 py-1.5 transition-colors duration-300"
             style={{
               clipPath: "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)"
             }}

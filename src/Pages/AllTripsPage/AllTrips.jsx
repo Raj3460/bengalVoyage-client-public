@@ -38,11 +38,11 @@ const AllTrips = () => {
   }
   
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-4 py-8">
       <ScrollToTop /> 
       <h1 className="text-3xl font-bold text-center mb-8">Our Tour Packages</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {packages.map((pkg) => (
           <PackageCard key={pkg._id} pkg={pkg} />
         ))}

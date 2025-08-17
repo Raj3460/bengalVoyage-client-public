@@ -158,15 +158,15 @@ const CommunityStories = () => {
     <div className="container mx-auto px-4 py-8 ">
       <ScrollToTop /> 
       <motion.h1
-        className="text-4xl md:text-5xl font-extrabold text-center text-blue-700 mb-12 drop-shadow-lg"
+        className="text-4xl md:text-5xl font-extrabold text-center text-info mb-12 drop-shadow-lg"
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        Inspiring Community Stories
+        Inspiring <span className="  font-bold bg-gradient-to-r from-primary  to-accent bg-clip-text text-transparent">Community</span> Stories
       </motion.h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {stories.length === 0 ? (
           <div className="lg:col-span-3 text-center py-10 text-xl text-gray-600">
             No stories published yet. Be the first to share your experience!
@@ -192,7 +192,7 @@ const CommunityStories = () => {
               >
                 {/* Story Image Section */}
                 <div
-                  className="w-full h-64 relative cursor-pointer"
+                  className="w-full h-56 relative cursor-pointer"
                   onClick={() => {
                     setSelectedStory(story);
                     setCurrentModalImageIndex(0);
@@ -298,16 +298,16 @@ const CommunityStories = () => {
                 </div>
 
                 {/* Story Content */}
-                <div className="p-5 flex flex-col flex-grow">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-2 line-clamp-1">
+                <div className="p-3 flex flex-col flex-grow">
+                  <h2 className="text-2xl font-bold text-gray-800  line-clamp-1">
                     {story.title}
                   </h2>
-                  <p className="text-gray-600 text-base mb-4 line-clamp-2 flex-grow">
+                  <p className="text-gray-600 text-base  line-clamp-2 flex-grow">
                     {story.description}
                   </p>
 
                   {/* Author Info */}
-                  <div className="flex items-center mb-4 border-t border-gray-100 pt-4">
+                  <div className="flex items-center  border-t border-gray-100 py-1.5">
                     <img
                       src={
                         story.author?.image ||
