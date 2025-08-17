@@ -305,7 +305,7 @@ const AddPackage = () => {
             <button 
               type="button" 
               onClick={() => addImg("")}
-              className="btn btn-sm btn-outline mt-2"
+              className="btn btn-sm btn-outline mt-2 text-accent"
             >
               <FaPlus className="mr-1" /> Add Another Image
             </button>
@@ -374,7 +374,7 @@ const AddPackage = () => {
           <button
             type="button"
             onClick={() => addDay({ day: planFields.length + 1, headline: "", details: "" })}
-            className="btn btn-outline btn-sm"
+            className="btn btn-outline btn-sm text-accent"
           >
             <FaPlus className="mr-1" /> Add Another Day
           </button>
@@ -382,7 +382,7 @@ const AddPackage = () => {
 
         {/* New: Not Included Section */}
         <div className="space-y-4 p-6 bg-gray-50 dark:bg-gray-700 rounded-lg">
-          <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">
+          <h3 className="text-xl font-semibold  text-base-300 mb-4">
             What's Not Included
           </h3>
           
@@ -408,9 +408,9 @@ const AddPackage = () => {
           <button
             type="button"
             onClick={() => addNotIncluded("")}
-            className="btn btn-outline btn-sm mt-2"
+            className="btn btn-outline btn-sm mt-2 text-accent"
           >
-            <FaPlus className="mr-1" /> Add Exclusion
+            <FaPlus className="mr-1 " /> Add Exclusion
           </button>
         </div>
 

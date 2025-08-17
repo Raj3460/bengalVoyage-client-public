@@ -9,7 +9,7 @@ import ScrollToTop from "../../Component/ScrollToTop";
 
 const AboutUs = () => {
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
        <ScrollToTop /> 
       <MYBanner></MYBanner>
       <AboutMe />

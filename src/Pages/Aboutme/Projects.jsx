@@ -32,7 +32,7 @@ const ProjectCard = ({ project }) => {
   }, [project.images.length]);
 
   return (
-    <div className="flex flex-col lg:flex-row h-full  rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+    <div className="flex flex-col lg:flex-row h-full rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 bg-base-300">
       {/* Image Section */}
       <div className="lg:w-1/2 h-64 lg:h-auto relative">
         {project.images.map((img, idx) => (
@@ -49,7 +49,7 @@ const ProjectCard = ({ project }) => {
             <button
               key={i}
               onClick={() => setCurrentImageIndex(i)}
-              className={`w-2 h-2 rounded-full ${i === currentImageIndex ? 'bg-white' : 'bg-white/50'}`}
+              className={`w-2 h-2 rounded-full ${i === currentImageIndex ? 'bg-accent' : 'bg-secondary/50'}`}
             />
           ))}
         </div>
@@ -58,10 +58,10 @@ const ProjectCard = ({ project }) => {
       {/* Text Content */}
       <div className="lg:w-1/2 p-6 flex flex-col justify-between space-y-4">
         <div>
-          <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+          <h3 className="text-2xl font-bold text-primary">
             {project.title}
           </h3>
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p className="text-info leading-relaxed">
             {project.description}
           </p>
 
@@ -69,7 +69,7 @@ const ProjectCard = ({ project }) => {
             {project.technologies.map((tech, i) => (
               <span
                 key={i}
-                className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full hover:bg-blue-200 dark:hover:bg-blue-700 transition"
+                className="px-3 py-1 bg-primary/25 text-sm rounded-full hover:bg-info-focus transition"
               >
                 {tech}
               </span>
@@ -82,7 +82,7 @@ const ProjectCard = ({ project }) => {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition"
+            className="flex items-center text-info hover:text-accent transition"
           >
             <FiGithub className="mr-2" />
             Code
@@ -91,7 +91,7 @@ const ProjectCard = ({ project }) => {
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition"
+            className="flex items-center text-info hover:text-accent transition"
           >
             <FiExternalLink className="mr-2" />
             Live Demo
@@ -139,13 +139,13 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-100 dark:bg-gray-900 w-full">
+    <section id="projects" className="py-20 bg-base-300 w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
-            My <span className="text-blue-600 dark:text-blue-400">Projects</span>
+          <h2 className="text-4xl font-bold text-primary">
+            My <span className="text-accent">Projects</span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-secondary max-w-2xl mx-auto">
             A curated selection of my most recent and impactful development work.
           </p>
         </div>

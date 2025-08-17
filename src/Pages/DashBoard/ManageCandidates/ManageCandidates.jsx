@@ -182,11 +182,11 @@ const ManageCandidates = () => {
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gradient-to-r from-primary to-primary ">
             <tr>
-              <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Title</th>
-              <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Applicant</th>
-              <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Status</th>
-              <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Applied</th>
-              <th className="px-6 py-4 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">Actions</th>
+              <th className="px-6 py-4 text-left text-xs font-semibold  text-base-300 uppercase tracking-wider">Title</th>
+              <th className="px-6 py-4 text-left text-xs font-semibold  text-base-300 uppercase tracking-wider">Applicant</th>
+              <th className="px-6 py-4 text-left text-xs font-semibold  text-base-300 uppercase tracking-wider">Status</th>
+              <th className="px-6 py-4 text-left text-xs font-semibold  text-base-300 uppercase tracking-wider">Applied</th>
+              <th className="px-6 py-4 text-right text-xs font-semibold text-base-300  uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-100">

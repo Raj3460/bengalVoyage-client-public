@@ -160,7 +160,7 @@ const ManageUsersByAdmin = () => {
   console.log( 'totalPages',totalPages);
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">Manage Users</h1>
+      <h1 className="text-4xl font-bold  text-info mb-6">Manage <span className='text-accent'>Users</span></h1>
       
       {/* Search and Filter Section */}
       <div className="flex flex-col md:flex-row gap-4 mb-6">
@@ -194,7 +194,7 @@ const ManageUsersByAdmin = () => {
       <div className="overflow-x-auto bg-base-300 rounded-lg shadow">
         <table className="table w-full">
           <thead>
-            <tr className="bg-primary text-black font-bold">
+            <tr className="bg-primary text-base-300 font-bold">
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
