@@ -89,7 +89,7 @@ const AssignedTours = () => {
   return (
     <div className="container mx-auto px-4 py-8">
   <div className="flex justify-between items-center mb-6">
-    <h2 className="text-2xl font-bold dark:text-white">My Assigned Tours</h2>
+    <h2 className="text-2xl font-bold text-info">My Assigned Tours</h2>
     <button 
 
       className="btn btn-circle btn-sm"
@@ -109,18 +109,18 @@ const AssignedTours = () => {
         <table className="table w-full">
           <thead className="bg-secondary">
             <tr>
-              <th className="whitespace-nowrap dark:text-gray-700">Package</th>
-              <th className="whitespace-nowrap dark:text-gray-700">Tourist</th>
-              <th className="whitespace-nowrap dark:text-gray-700">Date</th>
-              <th className="whitespace-nowrap dark:text-gray-700">Price</th>
-              <th className="whitespace-nowrap dark:text-gray-700">Status</th>
-              <th className="whitespace-nowrap dark:text-gray-700">Actions</th>
+              <th className="whitespace-nowrap text-info">Package</th>
+              <th className="whitespace-nowrap text-info">Tourist</th>
+              <th className="whitespace-nowrap text-info">Date</th>
+              <th className="whitespace-nowrap text-info">Price</th>
+              <th className="whitespace-nowrap text-info">Status</th>
+              <th className="whitespace-nowrap text-info">Actions</th>
             </tr>
           </thead>
           <tbody>
             {tours.map((tour) => (
-              <tr key={tour._id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                <td className="whitespace-nowrap dark:text-white">{tour.packageName}</td>
+              <tr key={tour._id} className="hover:bg-accent/25 dark:hover:bg-primary/5">
+                <td className="whitespace-nowrap ">{tour.packageName}</td>
                 <td className="whitespace-nowrap">
                   <div className="dark:text-white">{tour.touristName}</div>
                   <div className="text-gray-500 dark:text-gray-400 text-xs">{tour.touristEmail}</div>

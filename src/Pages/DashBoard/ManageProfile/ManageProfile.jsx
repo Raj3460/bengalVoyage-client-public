@@ -132,18 +132,18 @@ console.log(adminStats);
 
       {/* Tourist CTA */}
       {currentUser?.role === "tourist" && (
-        <div className="relative z-0  bg-gradient-to-r from-yellow-50 to-yellow-50 dark:from-yellow-900/20 dark:to-yellow-900/20 p-6 rounded-2xl mb-10 overflow-hidden shadow">
+        <div className="relative z-0  bg-gradient-to-r from-primary/50 to-primary/50 dark:from-primary/20 dark:to-yellow/20 p-6 rounded-2xl mb-10 overflow-hidden shadow">
           <div className="absolute -right-10 -top-10 w-32 h-32 bg-yellow-200 dark:bg-yellow-800 rounded-full opacity-20"></div>
           <div className="absolute -right-5 -bottom-5 w-20 h-20 bg-yellow-300 dark:bg-yellow-700 rounded-full opacity-20"></div>
           <div className="relative z-0">
-            <h3 className="text-xl font-semibold mb-3 text-yellow-800 dark:text-yellow-200">
+            <h3 className="text-xl font-semibold mb-3 text-accent/85 dark:text-accent">
               Ready for a new adventure?
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-5 max-w-lg">
+            <p className="  mb-5 max-w-lg">
               Turn your passion for travel into a profession. Apply to become a certified tour guide and start creating unforgettable experiences for fellow travelers.
             </p>
             <Link to="/dashboard/join_as_tour_guide">
-              <button  className="flex items-center px-5 py-2.5 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all">
+              <button  className="flex items-center px-5 py-2.5 bg-gradient-to-r from-primary/50 to-primary/60 hover:from-primary/60 hover:to-primary/70 text-white rounded-lg shadow-md hover:shadow-lg transition-all">
                 Apply As a Tour Guide <FaArrowRight className="ml-2" />
               </button>
             </Link>
@@ -202,31 +202,31 @@ console.log(adminStats);
       
 
       {/* Account Info Section */}
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg">
-        <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-white border-b pb-3 border-gray-200 dark:border-gray-700">
+      <div className="bg-primary/30 p-6 rounded-2xl shadow-lg">
+        <h3 className="text-xl font-semibold mb-6 text-info border-b pb-3 border-gray-200 dark:border-gray-700">
           Account Information
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gray-50 dark:bg-secondary/30 p-4 rounded-lg">
-            <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">
+          <div className="bg-gray-50 dark:bg-secondary/10 p-4 rounded-lg">
+            <h4 className="text-sm font-medium  mb-3">
               BASIC INFORMATION
             </h4>
             <div className="space-y-4">
               <div>
-                <p className="text-xs text-gray-400 dark:text-gray-500">Full Name</p>
-                <p className="font-medium text-gray-800 dark:text-gray-200">
+                <p className="text-xs ">Full Name</p>
+                <p className="font-medium ">
                   {currentUser?.name || "Not provided"}
                 </p>
               </div>
               <div>
-                <p className="text-xs text-gray-400 dark:text-gray-500">Email Address</p>
-                <p className="font-medium text-gray-800 dark:text-gray-200">
+                <p className="text-xs ">Email Address</p>
+                <p className="font-medium ">
                   {currentUser?.email}
                 </p>
               </div>
               <div>
-                <p className="text-xs text-gray-400 dark:text-gray-500">Account Type</p>
-                <p className="font-medium text-gray-800 dark:text-gray-200 flex items-center">
+                <p className="text-xs ">Account Type</p>
+                <p className="font-medium flex items-center">
                   {roleIcon[currentUser?.role]}
                   <span className="ml-2">{roleLabel[currentUser?.role]}</span>
                 </p>
@@ -234,14 +234,14 @@ console.log(adminStats);
             </div>
           </div>
 
-          <div className="bg-gray-50 dark:bg-accent/30 p-4 rounded-lg">
-            <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">
+          <div className="bg-gray-50 dark:bg-accent/10 p-4 rounded-lg">
+            <h4 className="text-sm font-medium  mb-3">
               ACCOUNT DETAILS
             </h4>
             <div className="space-y-4">
               <div>
-                <p className="text-xs text-gray-400 dark:text-gray-500">Member Since</p>
-                <p className="font-medium text-gray-800 dark:text-gray-200">
+                <p className="text-xs ">Member Since</p>
+                <p className="font-medium ">
                   {new Date(currentUser?.created_at).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
@@ -250,14 +250,14 @@ console.log(adminStats);
                 </p>
               </div>
               <div>
-                <p className="text-xs text-gray-400 dark:text-gray-500">Account Status</p>
-                <p className="font-medium text-yellow-600 dark:text-yellow-400">
+                <p className="text-xs ">Account Status</p>
+                <p className="font-mediu text-accent font-extrabold">
                   Active
                 </p>
               </div>
               <div>
-                <p className="text-xs text-gray-400 dark:text-gray-500">Last Updated</p>
-                <p className="font-medium text-gray-800 dark:text-gray-200">
+                <p className="text-xs ">Last Updated</p>
+                <p className="font-medium ">
                   {new Date(currentUser?.updated_at || currentUser?.created_at).toLocaleDateString()}
                 </p>
               </div>

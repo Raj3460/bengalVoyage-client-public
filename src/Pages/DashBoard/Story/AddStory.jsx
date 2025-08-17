@@ -122,14 +122,14 @@ const AddStory = () => {
   };
 
   return (
-    <div className=" p-6 bg-white dark:bg-gray-900 shadow rounded-xl">
+    <div className=" p-6 bg-base-300 shadow rounded-xl">
       <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white">
         Create New Story
       </h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Title Field */}
         <div>
-          <label className="block font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label className="block font-medium   mb-2">
             Story Title *
           </label>
           <input
@@ -153,7 +153,7 @@ const AddStory = () => {
 
         {/* Description Field */}
         <div>
-          <label className="block font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label className="block font-medium   mb-2">
             Story Content *
           </label>
           <textarea
@@ -179,7 +179,7 @@ const AddStory = () => {
 
         {/* Image Upload Section */}
         <div>
-          <label className="block font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label className="block font-medium   mb-2">
             Story Images *
           </label>
           <div className="space-y-3">
@@ -229,7 +229,7 @@ const AddStory = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className={`btn btn-primary w-full mt-6 ${
+          className={`btn btn-primary text-base-300 w-full mt-6 ${
             mutation.isPending ? "loading" : ""
           }`}
           disabled={mutation.isPending}
